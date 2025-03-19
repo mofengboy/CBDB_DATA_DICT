@@ -1,0 +1,76 @@
+
+{
+    "table": "TablesFieldsChanges",
+    "table_desc": "记录数据库表结构变更历史的表，包括表名、字段名、变更类型、变更日期及备注",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "TableName",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "发生变更的表名称"
+        },
+        {
+            "cid": 1,
+            "name": "FieldName",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "被修改的字段名称"
+        },
+        {
+            "cid": 2,
+            "name": "Change",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "变更类型，如添加、删除、修改等"
+        },
+        {
+            "cid": 3,
+            "name": "ChangeDate",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "变更发生的日期"
+        },
+        {
+            "cid": 4,
+            "name": "ChangeNotes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "变更的详细说明或备注"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "TablesFields",
+            "from": "TableName",
+            "to": "DumpTblNm",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到TablesFields表的表名字段"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "TablesFields",
+            "from": "FieldName",
+            "to": "DumpFldNm",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到TablesFields表的字段名字段"
+        }
+    ]
+}

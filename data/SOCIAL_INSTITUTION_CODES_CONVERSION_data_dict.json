@@ -1,0 +1,67 @@
+
+{
+    "table": "SOCIAL_INSTITUTION_CODES_CONVERSION",
+    "table_desc": "存储社会机构新旧代码转换关系的映射表，用于记录不同版本或系统中机构代码的对应关系。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_inst_name_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "机构名称的唯一标识代码，关联到机构名称代码表（SOCIAL_INSTITUTION_NAME_CODES）。"
+        },
+        {
+            "cid": 1,
+            "name": "c_inst_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "原始机构代码，对应旧系统中的机构标识，关联到社会机构主表（SOCIAL_INSTITUTION_CODES）。"
+        },
+        {
+            "cid": 2,
+            "name": "c_inst_code_new",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "转换后的新机构代码，用于映射到新系统或更新后的机构代码体系。"
+        },
+        {
+            "cid": 3,
+            "name": "c_new_new_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "二次转换后的最新机构代码，可能用于多阶段代码迁移或层级映射。"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "SOCIAL_INSTITUTION_CODES",
+            "from": "c_inst_name_code",
+            "to": "c_inst_name_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到社会机构主表的机构名称代码字段。"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "SOCIAL_INSTITUTION_CODES",
+            "from": "c_inst_code",
+            "to": "c_inst_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到社会机构主表的原始机构代码字段。"
+        }
+    ]
+}

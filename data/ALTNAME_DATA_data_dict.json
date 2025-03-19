@@ -1,0 +1,139 @@
+
+{
+    "table": "ALTNAME_DATA",
+    "table_desc": "存储人物别名信息数据表，记录历史人物的各种别名、字号、谥号等替代名称信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联人物主键，对应BIOG_MAIN表的c_personid"
+        },
+        {
+            "cid": 1,
+            "name": "c_alt_name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物非中文别名/字号（如罗马化名称）"
+        },
+        {
+            "cid": 2,
+            "name": "c_alt_name_chn",
+            "type": "CHAR(255)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物中文别名/字号（汉字形式）"
+        },
+        {
+            "cid": 3,
+            "name": "c_alt_name_type_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "别名类型代码，关联ALTNAME_CODES表的c_name_type_code"
+        },
+        {
+            "cid": 4,
+            "name": "c_sequence",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "别名显示顺序编号"
+        },
+        {
+            "cid": 5,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源标识，关联TEXT_CODES表的c_textid"
+        },
+        {
+            "cid": 6,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源页码或卷号"
+        },
+        {
+            "cid": 7,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "别名备注说明"
+        },
+        {
+            "cid": 8,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 9,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建时间"
+        },
+        {
+            "cid": 10,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改者"
+        },
+        {
+            "cid": 11,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改时间"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联人物主信息表"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "ALTNAME_CODES",
+            "from": "c_alt_name_type_code",
+            "to": "c_name_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "RESTRICT",
+            "match": "NONE",
+            "desc": "关联别名类型代码表"
+        }
+    ]
+}

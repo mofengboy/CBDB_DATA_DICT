@@ -1,0 +1,279 @@
+
+{
+    "table": "SOCIAL_INSTITUTION_CODES",
+    "table_desc": "存储社会机构的基本信息，包括机构名称代码、机构代码、类型代码、起始与结束时间、年号关联、来源及注释等信息。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_inst_name_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构名称代码，对应 SOCIAL_INSTITUTION_NAME_CODES 表中的 c_inst_name_code 字段。"
+        },
+        {
+            "cid": 1,
+            "name": "c_inst_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构唯一标识代码，可能与 SOCIAL_INSTITUTION_CODES_CONVERSION 表关联。"
+        },
+        {
+            "cid": 2,
+            "name": "c_inst_type_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构类型代码，对应 SOCIAL_INSTITUTION_TYPES 表中的 c_inst_type_code 字段。"
+        },
+        {
+            "cid": 3,
+            "name": "c_inst_begin_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构的起始年份（公元纪年）。"
+        },
+        {
+            "cid": 4,
+            "name": "c_by_nianhao_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份对应的年号代码，关联 NIAN_HAO 表中的 c_nianhao_id。"
+        },
+        {
+            "cid": 5,
+            "name": "c_by_nianhao_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号对应的具体年份（如“洪武三年”中的“三年”）。"
+        },
+        {
+            "cid": 6,
+            "name": "c_by_year_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份的范围代码（如模糊年份），关联 YEAR_RANGE_CODES 表的 c_range_code。"
+        },
+        {
+            "cid": 7,
+            "name": "c_inst_begin_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构起始朝代代码，关联 DYNASTIES 表的 c_dy 字段。"
+        },
+        {
+            "cid": 8,
+            "name": "c_inst_floruit_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构活跃的主要朝代代码，关联 DYNASTIES 表的 c_dy 字段。"
+        },
+        {
+            "cid": 9,
+            "name": "c_inst_first_known_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构首次被记载的年份（公元纪年）。"
+        },
+        {
+            "cid": 10,
+            "name": "c_inst_end_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构的结束年份（公元纪年）。"
+        },
+        {
+            "cid": 11,
+            "name": "c_ey_nianhao_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份对应的年号代码，关联 NIAN_HAO 表中的 c_nianhao_id。"
+        },
+        {
+            "cid": 12,
+            "name": "c_ey_nianhao_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年号对应的具体年份。"
+        },
+        {
+            "cid": 13,
+            "name": "c_ey_year_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份的范围代码，关联 YEAR_RANGE_CODES 表的 c_range_code。"
+        },
+        {
+            "cid": 14,
+            "name": "c_inst_end_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构结束的朝代代码，关联 DYNASTIES 表的 c_dy 字段。"
+        },
+        {
+            "cid": 15,
+            "name": "c_inst_last_known_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构最后被记载的年份（公元纪年）。"
+        },
+        {
+            "cid": 16,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源代码，关联 TEXT_CODES 表的 c_textid 字段。"
+        },
+        {
+            "cid": 17,
+            "name": "c_pages",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源中的具体页码或卷号。"
+        },
+        {
+            "cid": 18,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关于该机构的其他注释或补充说明。"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "SOCIAL_INSTITUTION_NAME_CODES",
+            "from": "c_inst_name_code",
+            "to": "c_inst_name_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联机构名称代码表，确保名称代码一致性。"
+        },
+        {
+            "id": 1,
+            "seq": 0,
+            "table": "SOCIAL_INSTITUTION_TYPES",
+            "from": "c_inst_type_code",
+            "to": "c_inst_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联机构类型表，定义机构的具体类型。"
+        },
+        {
+            "id": 2,
+            "seq": 0,
+            "table": "NIAN_HAO",
+            "from": "c_by_nianhao_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号表，定义起始年号信息。"
+        },
+        {
+            "id": 3,
+            "seq": 0,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_by_year_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围代码表，定义起始年份范围类型。"
+        },
+        {
+            "id": 4,
+            "seq": 0,
+            "table": "DYNASTIES",
+            "from": "c_inst_begin_dy",
+            "to": "c_dy",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联朝代表，定义起始朝代信息。"
+        },
+        {
+            "id": 5,
+            "seq": 0,
+            "table": "NIAN_HAO",
+            "from": "c_ey_nianhao_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号表，定义结束年号信息。"
+        },
+        {
+            "id": 6,
+            "seq": 0,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_ey_year_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围代码表，定义结束年份范围类型。"
+        },
+        {
+            "id": 7,
+            "seq": 0,
+            "table": "DYNASTIES",
+            "from": "c_inst_end_dy",
+            "to": "c_dy",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联朝代表，定义结束朝代信息。"
+        },
+        {
+            "id": 8,
+            "seq": 0,
+            "table": "TEXT_CODES",
+            "from": "c_source",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联文本资料表，定义机构信息的来源。"
+        }
+    ]
+}

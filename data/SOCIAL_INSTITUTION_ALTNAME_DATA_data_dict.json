@@ -1,0 +1,125 @@
+
+{
+    "table": "SOCIAL_INSTITUTION_ALTNAME_DATA",
+    "table_desc": "社会机构别名数据表，存储机构的其他名称或别名信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_inst_name_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "机构名称代码，外键关联SOCIAL_INSTITUTION_NAME_CODES表的c_inst_name_code字段"
+        },
+        {
+            "cid": 1,
+            "name": "c_inst_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "机构代码，外键关联SOCIAL_INSTITUTION_CODES表的c_inst_code字段"
+        },
+        {
+            "cid": 2,
+            "name": "c_inst_altname_type",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "别名类型代码，外键关联SOCIAL_INSTITUTION_ALTNAME_CODES表的c_inst_altname_type字段"
+        },
+        {
+            "cid": 3,
+            "name": "c_inst_altname_hz",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "机构别名汉字表示"
+        },
+        {
+            "cid": 4,
+            "name": "c_inst_altname_py",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "机构别名拼音表示"
+        },
+        {
+            "cid": 5,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "资料来源，外键关联TEXT_CODES表的c_textid字段"
+        },
+        {
+            "cid": 6,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "资料来源页码或位置信息"
+        },
+        {
+            "cid": 7,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "备注或附加说明"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "SOCIAL_INSTITUTION_NAME_CODES",
+            "from": "c_inst_name_code",
+            "to": "c_inst_name_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联机构名称主表"
+        },
+        {
+            "id": 1,
+            "seq": 0,
+            "table": "SOCIAL_INSTITUTION_CODES",
+            "from": "c_inst_code",
+            "to": "c_inst_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联机构主表"
+        },
+        {
+            "id": 2,
+            "seq": 0,
+            "table": "SOCIAL_INSTITUTION_ALTNAME_CODES",
+            "from": "c_inst_altname_type",
+            "to": "c_inst_altname_type",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联机构别名类型代码表"
+        },
+        {
+            "id": 3,
+            "seq": 0,
+            "table": "TEXT_CODES",
+            "from": "c_source",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联文本资料主表"
+        }
+    ]
+}

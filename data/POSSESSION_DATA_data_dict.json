@@ -1,0 +1,255 @@
+
+{
+    "table": "POSSESSION_DATA",
+    "table_desc": "存储个人财产及相关活动记录信息，包括财产获取、转让等行为的时间、数量、计量单位和地理位置信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "关联人物ID，对应 BIOG_MAIN 表的 c_personid"
+        },
+        {
+            "cid": 1,
+            "name": "c_possession_record_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "财产记录唯一标识符"
+        },
+        {
+            "cid": 2,
+            "name": "c_sequence",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "同一记录中多个事件的顺序编号"
+        },
+        {
+            "cid": 3,
+            "name": "c_possession_act_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "财产行为类型代码，关联 POSSESSION_ACT_CODES 表"
+        },
+        {
+            "cid": 4,
+            "name": "c_possession_desc",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "财产行为描述（英文）"
+        },
+        {
+            "cid": 5,
+            "name": "c_possession_desc_chn",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "财产行为描述（中文）"
+        },
+        {
+            "cid": 6,
+            "name": "c_quantity",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "财产数量"
+        },
+        {
+            "cid": 7,
+            "name": "c_measure_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "计量单位代码，关联 MEASURE_CODES 表"
+        },
+        {
+            "cid": 8,
+            "name": "c_possession_yr",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "财产行为发生的年份（公历年）"
+        },
+        {
+            "cid": 9,
+            "name": "c_possession_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "财产行为发生的年号代码，关联 NIAN_HAO 表"
+        },
+        {
+            "cid": 10,
+            "name": "c_possession_nh_yr",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "年号纪年中的具体年份"
+        },
+        {
+            "cid": 11,
+            "name": "c_possession_yr_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "年份范围代码，关联 YEAR_RANGE_CODES 表"
+        },
+        {
+            "cid": 12,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "财产相关地理位置ID，关联 ADDR_CODES 表"
+        },
+        {
+            "cid": 13,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "资料来源ID，关联 TEXT_CODES 表"
+        },
+        {
+            "cid": 14,
+            "name": "c_pages",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "资料引用页码或位置"
+        },
+        {
+            "cid": 15,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "附加注释"
+        },
+        {
+            "cid": 16,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 17,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 18,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "记录最后修改者"
+        },
+        {
+            "cid": 19,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联人物主表"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "POSSESSION_ACT_CODES",
+            "from": "c_possession_act_code",
+            "to": "c_possession_act_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联财产行为类型代码表"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "MEASURE_CODES",
+            "from": "c_measure_code",
+            "to": "c_measure_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联计量单位代码表"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "NIAN_HAO",
+            "from": "c_possession_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号代码表"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "ADDR_CODES",
+            "from": "c_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地理位置代码表"
+        },
+        {
+            "id": 5,
+            "seq": 5,
+            "table": "TEXT_CODES",
+            "from": "c_source",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联资料来源文本表"
+        }
+    ]
+}

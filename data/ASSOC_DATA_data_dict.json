@@ -1,0 +1,370 @@
+
+{
+    "table": "ASSOC_DATA",
+    "table_desc": "存储人物社会关系数据的核心表，记录人物之间的亲属关系、社交关联及关联事件的具体信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_assoc_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联类型代码，关联ASSOC_CODES表定义关系类型"
+        },
+        {
+            "cid": 1,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "主人物ID，关联BIOG_MAIN表"
+        },
+        {
+            "cid": 2,
+            "name": "c_kin_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系代码，关联KINSHIP_CODES表"
+        },
+        {
+            "cid": 3,
+            "name": "c_kin_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系实例ID，用于区分同一类型的不同亲属关系"
+        },
+        {
+            "cid": 4,
+            "name": "c_assoc_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联实例唯一标识符"
+        },
+        {
+            "cid": 5,
+            "name": "c_assoc_kin_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联对象的亲属关系代码，关联KINSHIP_CODES表"
+        },
+        {
+            "cid": 6,
+            "name": "c_assoc_kin_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联对象的亲属关系实例ID"
+        },
+        {
+            "cid": 7,
+            "name": "c_tertiary_personid",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "第三方参与人物ID，关联BIOG_MAIN表"
+        },
+        {
+            "cid": 8,
+            "name": "c_tertiary_type_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "第三方参与类型的文字说明"
+        },
+        {
+            "cid": 9,
+            "name": "c_assoc_count",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联事件发生次数"
+        },
+        {
+            "cid": 10,
+            "name": "c_sequence",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "同一关联事件的顺序编号"
+        },
+        {
+            "cid": 11,
+            "name": "c_assoc_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联发生的年份（公历年）"
+        },
+        {
+            "cid": 12,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源代码，关联TEXT_CODES表"
+        },
+        {
+            "cid": 13,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源页码或卷册信息"
+        },
+        {
+            "cid": 14,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联事件备注说明"
+        },
+        {
+            "cid": 15,
+            "name": "c_assoc_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联事件年号代码，关联NIAN_HAO表"
+        },
+        {
+            "cid": 16,
+            "name": "c_assoc_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号纪年对应的具体年份"
+        },
+        {
+            "cid": 17,
+            "name": "c_assoc_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年份范围代码，关联YEAR_RANGE_CODES表"
+        },
+        {
+            "cid": 18,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联发生地点ID，关联ADDRESSES表"
+        },
+        {
+            "cid": 19,
+            "name": "c_litgenre_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文学体裁代码，关联LITERARYGENRE_CODES表"
+        },
+        {
+            "cid": 20,
+            "name": "c_occasion_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "社交场合代码，关联OCCASION_CODES表"
+        },
+        {
+            "cid": 21,
+            "name": "c_topic_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "学术主题代码，关联SCHOLARLYTOPIC_CODES表"
+        },
+        {
+            "cid": 22,
+            "name": "c_inst_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构类型代码，关联SOCIAL_INSTITUTION_TYPES表"
+        },
+        {
+            "cid": 23,
+            "name": "c_inst_name_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构名称代码，关联SOCIAL_INSTITUTION_NAME_CODES表"
+        },
+        {
+            "cid": 24,
+            "name": "c_text_title",
+            "type": "CHAR(255)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联文献标题（强制存储原始汉字）"
+        },
+        {
+            "cid": 25,
+            "name": "c_assoc_claimer_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联主张者ID，关联BIOG_MAIN表"
+        },
+        {
+            "cid": 26,
+            "name": "c_assoc_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "闰月标记：1-闰月 0-非闰月"
+        },
+        {
+            "cid": 27,
+            "name": "c_assoc_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件发生的月份（农历）"
+        },
+        {
+            "cid": 28,
+            "name": "c_assoc_day",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件发生的日期（农历）"
+        },
+        {
+            "cid": 29,
+            "name": "c_assoc_day_gz",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件发生的干支日代码，关联GANZHI_CODES表"
+        },
+        {
+            "cid": 30,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 31,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 32,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "最后修改者"
+        },
+        {
+            "cid": 33,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "最后修改日期"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ASSOC_CODES",
+            "from": "c_assoc_code",
+            "to": "c_assoc_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联类型定义外键"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "主人物基本信息外键"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "KINSHIP_CODES",
+            "from": "c_kin_code",
+            "to": "c_kincode",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "亲属关系类型定义外键"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "ADDRESSES",
+            "from": "c_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地点信息外键"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "LITERARYGENRE_CODES",
+            "from": "c_litgenre_code",
+            "to": "c_lit_genre_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "文学体裁类型外键"
+        }
+    ]
+}

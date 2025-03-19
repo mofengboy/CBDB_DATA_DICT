@@ -1,0 +1,47 @@
+
+{
+    "table": "ALTNAME_CODES",
+    "table_desc": "存储别名类型代码及其描述的表，包括中文和英文版本",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_name_type_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "别名类型的唯一标识代码"
+        },
+        {
+            "cid": 1,
+            "name": "c_name_type_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "别名类型的英文描述"
+        },
+        {
+            "cid": 2,
+            "name": "c_name_type_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "别名类型的中文描述"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ALTNAME_DATA",
+            "from": "c_name_type_code",
+            "to": "c_alt_name_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ALTNAME_DATA表中的别名类型代码"
+        }
+    ]
+}

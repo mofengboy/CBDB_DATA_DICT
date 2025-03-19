@@ -1,0 +1,35 @@
+
+{
+    "table": "ASSUME_OFFICE_CODES",
+    "table_desc": "存储官员任职方式类型的编码表，用于标识官员获得职位的方式（如任命、选举、继承等）",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_assume_office_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "担任职务方式的唯一标识代码"
+        },
+        {
+            "cid": 1,
+            "name": "c_assume_office_desc_chn",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "任职方式的中文描述（如'任命'、'世袭'等）"
+        },
+        {
+            "cid": 2,
+            "name": "c_assume_office_desc",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "任职方式的英文描述（如'Appointment'、'Hereditary'等）"
+        }
+    ],
+    "foreign_keys": []
+}

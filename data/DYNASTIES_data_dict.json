@@ -1,0 +1,62 @@
+
+{
+    "table": "DYNASTIES",
+    "table_desc": "存储中国历代朝代的基本信息，包括朝代的中英文名称、起止年份及排序顺序",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "朝代唯一ID"
+        },
+        {
+            "cid": 1,
+            "name": "c_dynasty",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "朝代名称（英文）"
+        },
+        {
+            "cid": 2,
+            "name": "c_dynasty_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "朝代名称（中文）"
+        },
+        {
+            "cid": 3,
+            "name": "c_start",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "朝代起始年份（公元纪年）"
+        },
+        {
+            "cid": 4,
+            "name": "c_end",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "朝代结束年份（公元纪年）"
+        },
+        {
+            "cid": 5,
+            "name": "c_sort",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "排序序号，用于确定朝代在列表中的显示顺序"
+        }
+    ],
+    "foreign_keys": []
+}

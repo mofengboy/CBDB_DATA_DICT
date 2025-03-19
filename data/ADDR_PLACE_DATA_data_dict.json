@@ -1,0 +1,67 @@
+
+{
+    "table": "ADDR_PLACE_DATA",
+    "table_desc": "存储地址与地理位置关联关系的时间范围数据，记录地址实体与地理编码的对应关系及其有效时间区间",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地址唯一标识符，关联ADDR_CODES表的地址编码"
+        },
+        {
+            "cid": 1,
+            "name": "c_place_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地理位置唯一标识符，关联PLACE_CODES表的地理编码"
+        },
+        {
+            "cid": 2,
+            "name": "c_firstyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地址与地点关联关系的起始年份（公历）"
+        },
+        {
+            "cid": 3,
+            "name": "c_lastyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地址与地点关联关系的结束年份（公历）"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ADDR_CODES",
+            "from": "c_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地址编码主表，确保地址实体的有效性"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "PLACE_CODES",
+            "from": "c_place_id",
+            "to": "c_place_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地理编码主表，确保地理位置的规范性"
+        }
+    ]
+}

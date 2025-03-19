@@ -1,0 +1,121 @@
+
+{
+    "table": "KIN_Mourning",
+    "table_desc": "存储亲属关系与对应丧服制度信息的表，记录不同亲属关系对应的丧服等级、描述及其相关属性。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_kinrel",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系代码，标识具体的亲属关系类型（如父子、兄弟等）。"
+        },
+        {
+            "cid": 1,
+            "name": "c_kinrel_alt",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "替代亲属关系代码，用于表示同一关系的不同编码方式。"
+        },
+        {
+            "cid": 2,
+            "name": "c_kinrel_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系的中文名称或描述。"
+        },
+        {
+            "cid": 3,
+            "name": "c_mourning",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "丧服等级或制度的代码，表示亲属关系对应的丧服要求。"
+        },
+        {
+            "cid": 4,
+            "name": "c_mourning_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "丧服等级或制度的中文描述。"
+        },
+        {
+            "cid": 5,
+            "name": "c_kindist",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属距离（如直系、旁系、代数等）。"
+        },
+        {
+            "cid": 6,
+            "name": "c_kintype",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属类型代码，标识血亲、姻亲等分类。"
+        },
+        {
+            "cid": 7,
+            "name": "c_kintype_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属类型的英文描述（如父系、母系等）。"
+        },
+        {
+            "cid": 8,
+            "name": "c_kintype_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属类型的中文描述。"
+        },
+        {
+            "cid": 9,
+            "name": "c_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "备注信息，记录特殊说明或数据来源。"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "KINSHIP_CODES",
+            "from": "c_kinrel",
+            "to": "c_kincode",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到KINSHIP_CODES表，定义亲属关系代码的引用。"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "KINSHIP_CODES",
+            "from": "c_kinrel_alt",
+            "to": "c_kincode",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到KINSHIP_CODES表，定义替代亲属关系代码的引用。"
+        }
+    ]
+}

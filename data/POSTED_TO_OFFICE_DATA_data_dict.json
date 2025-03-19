@@ -1,0 +1,412 @@
+
+{
+    "table": "POSTED_TO_OFFICE_DATA",
+    "table_desc": "记录人物官职任职信息，包含任职时间、官职ID、任命类型、任职机构、来源文献等信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物ID，关联BIOG_MAIN表的c_personid"
+        },
+        {
+            "cid": 1,
+            "name": "c_office_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职ID，关联OFFICE_CODES表的c_office_id"
+        },
+        {
+            "cid": 2,
+            "name": "c_posting_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职记录唯一标识符"
+        },
+        {
+            "cid": 3,
+            "name": "c_posting_id_old",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "旧版任职记录ID（兼容字段）"
+        },
+        {
+            "cid": 4,
+            "name": "c_sequence",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职顺序编号"
+        },
+        {
+            "cid": 5,
+            "name": "c_firstyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职起始年份（公历年）"
+        },
+        {
+            "cid": 6,
+            "name": "c_fy_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份对应的年号编码，关联NIAN_HAO表的c_nianhao_id"
+        },
+        {
+            "cid": 7,
+            "name": "c_fy_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份在年号纪年中的具体年份"
+        },
+        {
+            "cid": 8,
+            "name": "c_fy_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份范围编码，关联YEAR_RANGE_CODES表的c_range_code"
+        },
+        {
+            "cid": 9,
+            "name": "c_lastyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职结束年份（公历年）"
+        },
+        {
+            "cid": 10,
+            "name": "c_ly_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份对应的年号编码，关联NIAN_HAO表的c_nianhao_id"
+        },
+        {
+            "cid": 11,
+            "name": "c_ly_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份在年号纪年中的具体年份"
+        },
+        {
+            "cid": 12,
+            "name": "c_ly_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份范围编码，关联YEAR_RANGE_CODES表的c_range_code"
+        },
+        {
+            "cid": 13,
+            "name": "c_appt_type_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任命类型编码，关联APPOINTMENT_TYPE_CODES表的c_appt_type_code"
+        },
+        {
+            "cid": 14,
+            "name": "c_assume_office_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "到任方式编码，关联ASSUME_OFFICE_CODES表的c_assume_office_code"
+        },
+        {
+            "cid": 15,
+            "name": "c_inst_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构代码，关联SOCIAL_INSTITUTION_CODES表的c_inst_code"
+        },
+        {
+            "cid": 16,
+            "name": "c_inst_name_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构名称代码，关联SOCIAL_INSTITUTION_NAME_CODES表的c_inst_name_code"
+        },
+        {
+            "cid": 17,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "来源文献ID，关联TEXT_CODES表的c_textid"
+        },
+        {
+            "cid": 18,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "来源文献页码或卷册信息"
+        },
+        {
+            "cid": 19,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "备注信息"
+        },
+        {
+            "cid": 20,
+            "name": "c_office_id_backup",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "旧版官职ID备份字段"
+        },
+        {
+            "cid": 21,
+            "name": "c_office_category_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职分类ID，关联OFFICE_CATEGORIES表的c_office_category_id"
+        },
+        {
+            "cid": 22,
+            "name": "c_fy_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份是否闰月（0=否，1=是）"
+        },
+        {
+            "cid": 23,
+            "name": "c_fy_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始月份（1-12）"
+        },
+        {
+            "cid": 24,
+            "name": "c_ly_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份是否闰月（0=否，1=是）"
+        },
+        {
+            "cid": 25,
+            "name": "c_ly_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束月份（1-12）"
+        },
+        {
+            "cid": 26,
+            "name": "c_fy_day",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始日（农历日）"
+        },
+        {
+            "cid": 27,
+            "name": "c_ly_day",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束日（农历日）"
+        },
+        {
+            "cid": 28,
+            "name": "c_fy_day_gz",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始日干支编码，关联GANZHI_CODES表的c_ganzhi_code"
+        },
+        {
+            "cid": 29,
+            "name": "c_ly_day_gz",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束日干支编码，关联GANZHI_CODES表的c_ganzhi_code"
+        },
+        {
+            "cid": 30,
+            "name": "c_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "朝代编码，关联DYNASTIES表的c_dy"
+        },
+        {
+            "cid": 31,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 32,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 33,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改者"
+        },
+        {
+            "cid": 34,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联人物主表"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "OFFICE_CODES",
+            "from": "c_office_id",
+            "to": "c_office_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联官职编码表"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "APPOINTMENT_TYPE_CODES",
+            "from": "c_appt_type_code",
+            "to": "c_appt_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联任命类型编码表"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "ASSUME_OFFICE_CODES",
+            "from": "c_assume_office_code",
+            "to": "c_assume_office_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到任方式编码表"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "SOCIAL_INSTITUTION_CODES",
+            "from": "c_inst_code",
+            "to": "c_inst_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联社会机构编码表"
+        },
+        {
+            "id": 5,
+            "seq": 5,
+            "table": "NIAN_HAO",
+            "from": "c_fy_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号表（起始年份）"
+        },
+        {
+            "id": 6,
+            "seq": 6,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_fy_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围编码表（起始年份）"
+        },
+        {
+            "id": 7,
+            "seq": 7,
+            "table": "DYNASTIES",
+            "from": "c_dy",
+            "to": "c_dy",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联朝代编码表"
+        }
+    ]
+}

@@ -1,0 +1,107 @@
+
+{
+    "table": "ADDR_CODES",
+    "table_desc": "存储地址编码信息，包括地址的中英文名称、存在的时间范围、地理坐标及行政区类型等。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址的唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址的英文名称"
+        },
+        {
+            "cid": 2,
+            "name": "c_name_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址的中文名称"
+        },
+        {
+            "cid": 3,
+            "name": "c_firstyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址存在的起始年份"
+        },
+        {
+            "cid": 4,
+            "name": "c_lastyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址存在的结束年份"
+        },
+        {
+            "cid": 5,
+            "name": "c_admin_type",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "行政区类型（如省、州、县等）"
+        },
+        {
+            "cid": 6,
+            "name": "x_coord",
+            "type": "FLOAT",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地理经度坐标"
+        },
+        {
+            "cid": 7,
+            "name": "y_coord",
+            "type": "FLOAT",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地理纬度坐标"
+        },
+        {
+            "cid": 8,
+            "name": "CHGIS_PT_ID",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "中国历史地理信息系统（CHGIS）中的点标识符"
+        },
+        {
+            "cid": 9,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "备注或附加信息"
+        },
+        {
+            "cid": 10,
+            "name": "c_alt_names",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址的备用名称或别名"
+        }
+    ],
+    "foreign_keys": []
+}

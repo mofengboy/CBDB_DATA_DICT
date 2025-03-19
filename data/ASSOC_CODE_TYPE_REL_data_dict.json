@@ -1,0 +1,49 @@
+
+{
+    "table": "ASSOC_CODE_TYPE_REL",
+    "table_desc": "存储关联关系代码与关联类型之间的映射关系，用于定义不同类型的社交关联对应的分类标识",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_assoc_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "关联关系代码，指向ASSOC_CODES表的c_assoc_code字段，标识具体的社交关系类型"
+        },
+        {
+            "cid": 1,
+            "name": "c_assoc_type_id",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "关联类型标识符，指向ASSOC_TYPES表的c_assoc_type_id字段，定义社交关系的分类层级"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ASSOC_CODES",
+            "from": "c_assoc_code",
+            "to": "c_assoc_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联关系代码外键约束，确保关联代码的有效性"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "ASSOC_TYPES",
+            "from": "c_assoc_type_id",
+            "to": "c_assoc_type_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联类型标识符外键约束，维护关联类型分类的完整性"
+        }
+    ]
+}

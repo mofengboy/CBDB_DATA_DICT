@@ -1,0 +1,152 @@
+
+{
+    "table": "SOCIAL_INSTITUTION_ADDR",
+    "table_desc": "记录社会机构地址信息的关联表，包含机构地址类型、地理坐标及时间范围等信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_inst_name_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "社会机构名称代码，关联 SOCIAL_INSTITUTION_NAME_CODES 表的 c_inst_name_code"
+        },
+        {
+            "cid": 1,
+            "name": "c_inst_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "社会机构代码，关联 SOCIAL_INSTITUTION_CODES 表的 c_inst_code"
+        },
+        {
+            "cid": 2,
+            "name": "c_inst_addr_type_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构地址类型代码，关联 SOCIAL_INSTITUTION_ADDR_TYPES 表的 c_inst_addr_type_code"
+        },
+        {
+            "cid": 3,
+            "name": "c_inst_addr_begin_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构地址起始年份（可为空）"
+        },
+        {
+            "cid": 4,
+            "name": "c_inst_addr_end_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构地址结束年份（可为空）"
+        },
+        {
+            "cid": 5,
+            "name": "c_inst_addr_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址唯一标识符，关联 ADDR_CODES 表的 c_addr_id"
+        },
+        {
+            "cid": 6,
+            "name": "inst_xcoord",
+            "type": "FLOAT",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构地址的经度坐标"
+        },
+        {
+            "cid": 7,
+            "name": "inst_ycoord",
+            "type": "FLOAT",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构地址的纬度坐标"
+        },
+        {
+            "cid": 8,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源标识符，关联 TEXT_CODES 表的 c_textid"
+        },
+        {
+            "cid": 9,
+            "name": "c_pages",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料引用页码或位置"
+        },
+        {
+            "cid": 10,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "附加说明或注释"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "SOCIAL_INSTITUTION_NAME_CODES",
+            "from": "c_inst_name_code",
+            "to": "c_inst_name_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联机构名称代码"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "SOCIAL_INSTITUTION_CODES",
+            "from": "c_inst_code",
+            "to": "c_inst_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联社会机构主代码"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "SOCIAL_INSTITUTION_ADDR_TYPES",
+            "from": "c_inst_addr_type_code",
+            "to": "c_inst_addr_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地址类型代码"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "ADDR_CODES",
+            "from": "c_inst_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地址主数据"
+        }
+    ]
+}

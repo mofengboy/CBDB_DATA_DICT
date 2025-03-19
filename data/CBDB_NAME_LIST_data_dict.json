@@ -1,0 +1,47 @@
+
+{
+    "table": "CBDB_NAME_LIST",
+    "table_desc": "存储中国历代人物姓名列表及其来源信息，用于索引和查询人物不同名称的关联数据。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物唯一标识符，关联到 BIOG_MAIN 表中的 c_personid，用于标识具体人物。"
+        },
+        {
+            "cid": 1,
+            "name": "name",
+            "type": "CHAR(255)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物姓名，包含人物在不同文献或来源中的名称记录。"
+        },
+        {
+            "cid": 2,
+            "name": "source",
+            "type": "CHAR(255)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "姓名的来源信息，记录该名称出自的文献、资料或其他参考来源。"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到 BIOG_MAIN 表的主键，确保姓名记录与核心人物数据的一致性。"
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+
+{
+    "table": "KIN_MOURNING_STEPS",
+    "table_desc": "存储与亲属关系相关的丧服等级步骤信息，用于描述不同亲属关系在服丧期间的步骤计算规则",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_kinrel",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系代码，标识具体的亲属关系类型（如父子、兄弟等）"
+        },
+        {
+            "cid": 1,
+            "name": "c_upstep",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "向上步骤数，表示在家族谱系中向上追溯的代数"
+        },
+        {
+            "cid": 2,
+            "name": "c_dwnstep",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "向下步骤数，表示在家族谱系中向下追溯的代数"
+        },
+        {
+            "cid": 3,
+            "name": "c_marstep",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "婚姻步骤数，表示通过婚姻关系连接的步骤"
+        },
+        {
+            "cid": 4,
+            "name": "c_colstep",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "共同步骤数，表示共同祖先的代数或关联步骤"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "KINSHIP_CODES",
+            "from": "c_kinrel",
+            "to": "c_kinrel",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到KINSHIP_CODES表的亲属关系定义"
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+
+{
+    "table": "HOUSEHOLD_STATUS_CODES",
+    "table_desc": "存储户籍状态分类代码表，包含户籍类型代码及其对应的中英文状态描述",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_household_status_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "户籍状态分类代码，用于唯一标识不同的户籍类型（如民籍/军籍/匠籍等）"
+        },
+        {
+            "cid": 1,
+            "name": "c_household_status_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "户籍状态英文描述（如'Civilian Household'）"
+        },
+        {
+            "cid": 2,
+            "name": "c_household_status_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "户籍状态中文描述（如'民籍'）"
+        }
+    ],
+    "foreign_keys": []
+}

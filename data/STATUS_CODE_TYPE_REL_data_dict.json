@@ -1,0 +1,49 @@
+
+{
+    "table": "STATUS_CODE_TYPE_REL",
+    "table_desc": "状态代码与状态类型代码关联表，用于映射状态代码与其对应的状态类型分类关系",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_status_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "状态代码，关联到STATUS_CODES表的c_status_code字段"
+        },
+        {
+            "cid": 1,
+            "name": "c_status_type_code",
+            "type": "CHAR(12)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "状态类型代码，关联到STATUS_TYPES表的c_status_type_code字段"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "STATUS_CODES",
+            "from": "c_status_code",
+            "to": "c_status_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联状态代码主表"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "STATUS_TYPES",
+            "from": "c_status_type_code",
+            "to": "c_status_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联状态类型分类表"
+        }
+    ]
+}

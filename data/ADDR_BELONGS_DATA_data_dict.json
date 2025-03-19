@@ -1,0 +1,114 @@
+
+{
+    "table": "ADDR_BELONGS_DATA",
+    "table_desc": "存储地址归属关系的时序数据，记录特定地址在时间维度上所属的上级行政区划及其来源信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "当前地址的唯一标识符，关联地址编码表(ADDR_CODES/ADDRESSES)的主键"
+        },
+        {
+            "cid": 1,
+            "name": "c_belongs_to",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "上级归属地址的唯一标识符，递归关联本表或地址编码表(ADDR_CODES/ADDRESSES)的c_addr_id"
+        },
+        {
+            "cid": 2,
+            "name": "c_firstyear",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "归属关系生效起始年份（公元纪年）"
+        },
+        {
+            "cid": 3,
+            "name": "c_lastyear",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "归属关系生效结束年份（公元纪年）"
+        },
+        {
+            "cid": 4,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "资料来源标识符，关联文本资料表(TEXT_CODES)的c_textid字段"
+        },
+        {
+            "cid": 5,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "资料来源的具体页码或位置说明"
+        },
+        {
+            "cid": 6,
+            "name": "c_secondary_source_author",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "次要资料来源的作者/编纂者信息"
+        },
+        {
+            "cid": 7,
+            "name": "c_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "关于该归属关系的补充说明或考证注释"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ADDRESSES",
+            "from": "c_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "通过c_addr_id与地址主表(ADDRESSES)建立归属主体关系"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "ADDRESSES",
+            "from": "c_belongs_to",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "通过c_belongs_to与地址主表(ADDRESSES)建立被归属对象关系"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "TEXT_CODES",
+            "from": "c_source",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "通过c_source关联文本资料表获取来源文献元数据"
+        }
+    ]
+}

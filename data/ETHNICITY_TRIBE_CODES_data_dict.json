@@ -1,0 +1,197 @@
+
+{
+    "table": "ETHNICITY_TRIBE_CODES",
+    "table_desc": "存储中国历史上民族、族群及其子群的分类代码信息，包含民族名称、法律分类、罗马化拼写、姓氏、备注及在历代史书中的记载引用。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_ethnicity_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "主民族代码，唯一标识特定民族或族群分类"
+        },
+        {
+            "cid": 1,
+            "name": "c_group_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属上级族群代码，用于层级分类"
+        },
+        {
+            "cid": 2,
+            "name": "c_subgroup_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "子群细分代码，标识更具体的族群分支"
+        },
+        {
+            "cid": 3,
+            "name": "c_altname_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "替代名称或别名代码，关联其他名称编码表"
+        },
+        {
+            "cid": 4,
+            "name": "c_name_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "民族或族群的中文名称"
+        },
+        {
+            "cid": 5,
+            "name": "c_name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "民族或族群的英文或罗马化名称"
+        },
+        {
+            "cid": 6,
+            "name": "c_ethno_legal_cat",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "民族法律分类（如官方认定的族群类别）"
+        },
+        {
+            "cid": 7,
+            "name": "c_romanized",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "民族名称的罗马化拼写标准（如拼音或威妥玛式）"
+        },
+        {
+            "cid": 8,
+            "name": "c_surname",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "该民族常见的姓氏"
+        },
+        {
+            "cid": 9,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "备注或附加说明"
+        },
+        {
+            "cid": 10,
+            "name": "JiuTangShu",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《旧唐书》中相关记载的引用信息"
+        },
+        {
+            "cid": 11,
+            "name": "XinTangShu",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《新唐书》中相关记载的引用信息"
+        },
+        {
+            "cid": 12,
+            "name": "JiuWudaiShi",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《旧五代史》中相关记载的引用信息"
+        },
+        {
+            "cid": 13,
+            "name": "XinWudaiShi",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《新五代史》中相关记载的引用信息"
+        },
+        {
+            "cid": 14,
+            "name": "SongShi",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《宋史》中相关记载的引用信息"
+        },
+        {
+            "cid": 15,
+            "name": "LiaoShi",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《辽史》中相关记载的引用信息"
+        },
+        {
+            "cid": 16,
+            "name": "JinShi",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《金史》中相关记载的引用信息"
+        },
+        {
+            "cid": 17,
+            "name": "YuanShi",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《元史》中相关记载的引用信息"
+        },
+        {
+            "cid": 18,
+            "name": "MingShi",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《明史》中相关记载的引用信息"
+        },
+        {
+            "cid": 19,
+            "name": "QingShiGao",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "《清史稿》中相关记载的引用信息"
+        },
+        {
+            "cid": 20,
+            "name": "c_sortorder",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "排序序号，用于控制数据展示顺序"
+        }
+    ],
+    "foreign_keys": []
+}

@@ -1,0 +1,74 @@
+
+{
+    "table": "BIOG_ADDR_CODES",
+    "table_desc": "存储人物地址类型代码及其描述信息，用于定义不同地址类型的分类标准和索引排序规则",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_addr_type",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地址类型唯一编码（主标识符）"
+        },
+        {
+            "cid": 1,
+            "name": "c_addr_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地址类型英文描述（如籍贯/居住地/墓葬地等）"
+        },
+        {
+            "cid": 2,
+            "name": "c_addr_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地址类型中文描述（如：籍贯/居住地/墓葬地等）"
+        },
+        {
+            "cid": 3,
+            "name": "c_addr_note",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地址类型补充说明"
+        },
+        {
+            "cid": 4,
+            "name": "c_index_addr_rank",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地址类型在索引中的排序权重值"
+        },
+        {
+            "cid": 5,
+            "name": "c_index_addr_default_rank",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地址类型默认索引排序等级"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_ADDR_DATA",
+            "from": "c_addr_type",
+            "to": "c_addr_type",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地址数据表，维护地址类型一致性"
+        }
+    ]
+}

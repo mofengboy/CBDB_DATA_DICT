@@ -1,0 +1,141 @@
+
+{
+    "table": "KIN_DATA",
+    "table_desc": "存储人物的亲属关系数据，包括亲属的ID、亲属关系代码、来源及注释等信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "主人物ID，关联BIOG_MAIN表的c_personid字段"
+        },
+        {
+            "cid": 1,
+            "name": "c_kin_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属人物ID，关联BIOG_MAIN表的c_personid字段"
+        },
+        {
+            "cid": 2,
+            "name": "c_kin_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系代码，关联KINSHIP_CODES表的c_kincode字段"
+        },
+        {
+            "cid": 3,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "数据来源的文本ID（可能关联其他来源表）"
+        },
+        {
+            "cid": 4,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "来源文献的页码或位置信息"
+        },
+        {
+            "cid": 5,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关于该亲属关系的补充注释"
+        },
+        {
+            "cid": 6,
+            "name": "c_autogen_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "系统自动生成的备注信息"
+        },
+        {
+            "cid": 7,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 8,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 9,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改者"
+        },
+        {
+            "cid": 10,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到BIOG_MAIN表的主人物ID"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "BIOG_MAIN",
+            "from": "c_kin_id",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到BIOG_MAIN表的亲属人物ID"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "KINSHIP_CODES",
+            "from": "c_kin_code",
+            "to": "c_kincode",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到KINSHIP_CODES表的亲属关系代码"
+        }
+    ]
+}

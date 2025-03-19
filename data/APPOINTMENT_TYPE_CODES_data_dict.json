@@ -1,0 +1,83 @@
+
+{
+    "table": "APPOINTMENT_TYPE_CODES",
+    "table_desc": "存储官职任命类型代码及其中英文描述的代码表",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_appt_type_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职任命类型代码(唯一标识符)"
+        },
+        {
+            "cid": 1,
+            "name": "c_appt_type_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职任命类型中文描述"
+        },
+        {
+            "cid": 2,
+            "name": "c_appt_type_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职任命类型英文描述"
+        },
+        {
+            "cid": 3,
+            "name": "c_appt_type_desc_chn_alt",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职任命类型备用中文描述"
+        },
+        {
+            "cid": 4,
+            "name": "c_appt_type_desc_alt",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职任命类型备用英文描述"
+        },
+        {
+            "cid": 5,
+            "name": "check",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "数据校验标识字段"
+        },
+        {
+            "cid": 6,
+            "name": "c_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "备注说明字段"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "POSTED_TO_OFFICE_DATA",
+            "from": "c_appt_type_code",
+            "to": "c_appt_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联官职任职记录中的任命类型"
+        }
+    ]
+}

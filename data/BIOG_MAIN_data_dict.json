@@ -1,0 +1,578 @@
+{
+    "table": "BIOG_MAIN",
+    "table_desc": "存储人物核心传记信息的主表，包含人物的基本属性、生卒年份、籍贯信息、民族归属、行政编码及系统元数据等核心字段",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物唯一标识符，系统主键"
+        },
+        {
+            "cid": 1,
+            "name": "c_name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物姓名（拉丁化形式）"
+        },
+        {
+            "cid": 2,
+            "name": "c_name_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物中文姓名"
+        },
+        {
+            "cid": 3,
+            "name": "c_index_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "索引年份（用于人物检索的时间基准）"
+        },
+        {
+            "cid": 4,
+            "name": "c_index_year_type_code",
+            "type": "CHAR(16)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "索引年份类型编码（关联INDEXYEAR_TYPE_CODES表）"
+        },
+        {
+            "cid": 5,
+            "name": "c_index_year_source_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "索引年份来源标识（关联文本来源表）"
+        },
+        {
+            "cid": 6,
+            "name": "c_female",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "性别标识（0=男性，1=女性）"
+        },
+        {
+            "cid": 7,
+            "name": "c_index_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "标准籍贯地址ID（关联ADDRESSES表）"
+        },
+        {
+            "cid": 8,
+            "name": "c_index_addr_type_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "籍贯地址类型编码（关联BIOG_ADDR_CODES表）"
+        },
+        {
+            "cid": 9,
+            "name": "c_ethnicity_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "民族/族群编码（关联ETHNICITY_TRIBE_CODES表）"
+        },
+        {
+            "cid": 10,
+            "name": "c_household_status_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "户籍状态编码（关联HOUSEHOLD_STATUS_CODES表）"
+        },
+        {
+            "cid": 11,
+            "name": "c_tribe",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "部族/氏族名称（自由文本）"
+        },
+        {
+            "cid": 12,
+            "name": "c_birthyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出生年份（公历年份）"
+        },
+        {
+            "cid": 13,
+            "name": "c_by_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出生年号编码（关联NIAN_HAO表）"
+        },
+        {
+            "cid": 14,
+            "name": "c_by_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出生年份在年号纪年中的具体年份"
+        },
+        {
+            "cid": 15,
+            "name": "c_by_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出生年份范围编码（关联YEAR_RANGE_CODES表）"
+        },
+        {
+            "cid": 16,
+            "name": "c_deathyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "死亡年份（公历年份）"
+        },
+        {
+            "cid": 17,
+            "name": "c_dy_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "死亡年号编码（关联NIAN_HAO表）"
+        },
+        {
+            "cid": 18,
+            "name": "c_dy_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "死亡年份在年号纪年中的具体年份"
+        },
+        {
+            "cid": 19,
+            "name": "c_dy_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "死亡年份范围编码（关联YEAR_RANGE_CODES表）"
+        },
+        {
+            "cid": 20,
+            "name": "c_death_age",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "享寿年龄（整数）"
+        },
+        {
+            "cid": 21,
+            "name": "c_death_age_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "享寿年龄范围编码（关联YEAR_RANGE_CODES表）"
+        },
+        {
+            "cid": 22,
+            "name": "c_fl_earliest_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物活跃期最早年份"
+        },
+        {
+            "cid": 23,
+            "name": "c_fl_ey_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "活跃期最早年份对应的年号编码"
+        },
+        {
+            "cid": 24,
+            "name": "c_fl_ey_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "活跃期最早年份在年号纪年中的具体年份"
+        },
+        {
+            "cid": 25,
+            "name": "c_fl_ey_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "活跃期最早年份备注"
+        },
+        {
+            "cid": 26,
+            "name": "c_fl_latest_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物活跃期最晚年份"
+        },
+        {
+            "cid": 27,
+            "name": "c_fl_ly_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "活跃期最晚年份对应的年号编码"
+        },
+        {
+            "cid": 28,
+            "name": "c_fl_ly_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "活跃期最晚年份在年号纪年中的具体年份"
+        },
+        {
+            "cid": 29,
+            "name": "c_fl_ly_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "活跃期最晚年份备注"
+        },
+        {
+            "cid": 30,
+            "name": "c_surname",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "姓氏（拉丁化形式）"
+        },
+        {
+            "cid": 31,
+            "name": "c_surname_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "姓氏（中文）"
+        },
+        {
+            "cid": 32,
+            "name": "c_mingzi",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "名字（拉丁化形式）"
+        },
+        {
+            "cid": 33,
+            "name": "c_mingzi_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "名字（中文）"
+        },
+        {
+            "cid": 34,
+            "name": "c_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "主要活动朝代编码（关联DYNASTIES表）"
+        },
+        {
+            "cid": 35,
+            "name": "c_choronym_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "郡望编码（关联CHORONYM_CODES表）"
+        },
+        {
+            "cid": 36,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物备注信息"
+        },
+        {
+            "cid": 37,
+            "name": "c_by_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出生日期是否包含闰月标记"
+        },
+        {
+            "cid": 38,
+            "name": "c_dy_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "死亡日期是否包含闰月标记"
+        },
+        {
+            "cid": 39,
+            "name": "c_by_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出生月份（农历）"
+        },
+        {
+            "cid": 40,
+            "name": "c_dy_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "死亡月份（农历）"
+        },
+        {
+            "cid": 41,
+            "name": "c_by_day",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出生日期（农历日）"
+        },
+        {
+            "cid": 42,
+            "name": "c_dy_day",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "死亡日期（农历日）"
+        },
+        {
+            "cid": 43,
+            "name": "c_by_day_gz",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出生日干支编码（关联GANZHI_CODES表）"
+        },
+        {
+            "cid": 44,
+            "name": "c_dy_day_gz",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "死亡日干支编码（关联GANZHI_CODES表）"
+        },
+        {
+            "cid": 45,
+            "name": "c_surname_proper",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "规范化的姓氏（拉丁化形式）"
+        },
+        {
+            "cid": 46,
+            "name": "c_mingzi_proper",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "规范化的名字（拉丁化形式）"
+        },
+        {
+            "cid": 47,
+            "name": "c_name_proper",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "规范化的全名（拉丁化形式）"
+        },
+        {
+            "cid": 48,
+            "name": "c_surname_rm",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "姓氏罗马化形式"
+        },
+        {
+            "cid": 49,
+            "name": "c_mingzi_rm",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "名字罗马化形式"
+        },
+        {
+            "cid": 50,
+            "name": "c_name_rm",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "全名罗马化形式"
+        },
+        {
+            "cid": 51,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 52,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 53,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改者"
+        },
+        {
+            "cid": 54,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        },
+        {
+            "cid": 55,
+            "name": "c_self_bio",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "是否存在自传的标记"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "INDEXYEAR_TYPE_CODES",
+            "from": "c_index_year_type_code",
+            "to": "c_index_year_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "索引年份类型代码引用"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "HOUSEHOLD_STATUS_CODES",
+            "from": "c_household_status_code",
+            "to": "c_household_status_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "户籍状态代码引用"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "ETHNICITY_TRIBE_CODES",
+            "from": "c_ethnicity_code",
+            "to": "c_ethnicity_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "民族/部落代码引用"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "DYNASTIES",
+            "from": "c_dy",
+            "to": "c_dy",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "所属朝代代码引用"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "CHORONYM_CODES",
+            "from": "c_choronym_code",
+            "to": "c_choronym_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "郡望代码引用"
+        },
+        {
+            "id": 5,
+            "seq": 5,
+            "table": "ADDRESSES",
+            "from": "c_index_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "主地址ID引用地址表"
+        }
+    ]
+}

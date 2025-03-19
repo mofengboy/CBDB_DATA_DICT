@@ -1,0 +1,362 @@
+
+{
+    "table": "ENTRY_DATA",
+    "table_desc": "记录人物的入仕途径及相关信息，包括科举、荫补、举荐等入仕方式的详细数据",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 BIOG_MAIN 表的人物唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_entry_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 ENTRY_CODES 表的入仕途径类型代码"
+        },
+        {
+            "cid": 2,
+            "name": "c_sequence",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "同一人物多条入仕记录的排序序号"
+        },
+        {
+            "cid": 3,
+            "name": "c_exam_rank",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "科举考试中的排名（如进士甲科、乙科等）"
+        },
+        {
+            "cid": 4,
+            "name": "c_kin_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联亲属关系的代码（如荫补入仕的亲属类型）"
+        },
+        {
+            "cid": 5,
+            "name": "c_kin_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联亲属的具体人物ID（若通过亲属关系入仕）"
+        },
+        {
+            "cid": 6,
+            "name": "c_assoc_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联社会关系的类型代码（如举荐人类型）"
+        },
+        {
+            "cid": 7,
+            "name": "c_assoc_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联社会关系的具体人物ID（如举荐人ID）"
+        },
+        {
+            "cid": 8,
+            "name": "c_year",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "入仕年份（绝对年份，若已知）"
+        },
+        {
+            "cid": 9,
+            "name": "c_age",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "入仕时的年龄（若记录）"
+        },
+        {
+            "cid": 10,
+            "name": "c_nianhao_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 NIAN_HAO 表的年号代码（用于相对纪年）"
+        },
+        {
+            "cid": 11,
+            "name": "c_entry_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号纪年中的具体年份（如“贞观三年”中的3）"
+        },
+        {
+            "cid": 12,
+            "name": "c_entry_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 YEAR_RANGE_CODES 表的年份范围代码（若年份不精确）"
+        },
+        {
+            "cid": 13,
+            "name": "c_inst_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 SOCIAL_INSTITUTION_CODES 表的社会机构代码（如科举考场机构）"
+        },
+        {
+            "cid": 14,
+            "name": "c_inst_name_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 SOCIAL_INSTITUTION_NAME_CODES 表的具体机构名称代码"
+        },
+        {
+            "cid": 15,
+            "name": "c_exam_field",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "科举考试科目或领域（如明经科、进士科）"
+        },
+        {
+            "cid": 16,
+            "name": "c_entry_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 ADDRESSES 表的入仕地点ID（如科举考试地点）"
+        },
+        {
+            "cid": 17,
+            "name": "c_parental_status",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 PARENTAL_STATUS_CODES 表的父母身份状态代码（影响荫补资格）"
+        },
+        {
+            "cid": 18,
+            "name": "c_attempt_count",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "入仕尝试次数（如科举落第次数）"
+        },
+        {
+            "cid": 19,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 TEXT_CODES 表的资料来源文本ID"
+        },
+        {
+            "cid": 20,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源的具体页码或章节"
+        },
+        {
+            "cid": 21,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "入仕记录的补充注释"
+        },
+        {
+            "cid": 22,
+            "name": "c_posting_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "与入仕后官职任命相关的备注"
+        },
+        {
+            "cid": 23,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者标识"
+        },
+        {
+            "cid": 24,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 25,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改者标识"
+        },
+        {
+            "cid": 26,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到 BIOG_MAIN 表，标识人物"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "ENTRY_CODES",
+            "from": "c_entry_code",
+            "to": "c_entry_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联入仕途径类型代码"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "KINSHIP_CODES",
+            "from": "c_kin_code",
+            "to": "c_kincode",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联亲属关系类型代码"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "ASSOC_CODES",
+            "from": "c_assoc_code",
+            "to": "c_assoc_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联社会关系类型代码"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "SOCIAL_INSTITUTION_CODES",
+            "from": "c_inst_code",
+            "to": "c_inst_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联社会机构代码"
+        },
+        {
+            "id": 5,
+            "seq": 5,
+            "table": "NIAN_HAO",
+            "from": "c_nianhao_id",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号代码"
+        },
+        {
+            "id": 6,
+            "seq": 6,
+            "table": "PARENTAL_STATUS_CODES",
+            "from": "c_parental_status",
+            "to": "c_parental_status_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联父母身份状态代码"
+        },
+        {
+            "id": 7,
+            "seq": 7,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_entry_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围代码"
+        },
+        {
+            "id": 8,
+            "seq": 8,
+            "table": "ADDRESSES",
+            "from": "c_entry_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联入仕地点地址ID"
+        },
+        {
+            "id": 9,
+            "seq": 9,
+            "table": "TEXT_CODES",
+            "from": "c_source",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联资料来源文本ID"
+        }
+    ]
+}

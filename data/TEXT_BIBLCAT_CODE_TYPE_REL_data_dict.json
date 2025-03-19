@@ -1,0 +1,49 @@
+
+{
+    "table": "TEXT_BIBLCAT_CODE_TYPE_REL",
+    "table_desc": "存储文献目录分类代码与其对应分类类型之间的关联关系",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_text_cat_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "文献目录分类代码标识符，关联到TEXT_BIBLCAT_CODES表的c_text_cat_code字段"
+        },
+        {
+            "cid": 1,
+            "name": "c_text_cat_type_id",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "文献目录分类类型标识符，关联到TEXT_BIBLCAT_TYPES表的c_text_cat_type_id字段"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "TEXT_BIBLCAT_CODES",
+            "from": "c_text_cat_code",
+            "to": "c_text_cat_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联文献目录分类代码主表"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "TEXT_BIBLCAT_TYPES",
+            "from": "c_text_cat_type_id",
+            "to": "c_text_cat_type_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联文献目录分类类型主表"
+        }
+    ]
+}

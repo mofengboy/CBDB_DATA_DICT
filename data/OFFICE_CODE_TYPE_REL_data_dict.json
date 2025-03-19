@@ -1,0 +1,49 @@
+
+{
+    "table": "OFFICE_CODE_TYPE_REL",
+    "table_desc": "存储官职代码与官职类型树节点之间的关联关系，用于建立官职与其分类体系之间的对应关系",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_office_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联的官职唯一标识符，对应OFFICE_CODES表的c_office_id字段"
+        },
+        {
+            "cid": 1,
+            "name": "c_office_tree_id",
+            "type": "CHAR(255)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联的官职类型树节点ID，对应OFFICE_TYPE_TREE表的c_office_type_node_id字段"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "OFFICE_CODES",
+            "from": "c_office_id",
+            "to": "c_office_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联官职基础信息表的主键"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "OFFICE_TYPE_TREE",
+            "from": "c_office_tree_id",
+            "to": "c_office_type_node_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联官职分类体系树形结构表的主键"
+        }
+    ]
+}

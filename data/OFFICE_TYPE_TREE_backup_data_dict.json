@@ -1,0 +1,65 @@
+
+{
+    "table": "OFFICE_TYPE_TREE_backup",
+    "table_desc": "存储机构类型树结构的备份表，用于记录不同机构类型的层级关系与描述信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_office_type_node_id",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构类型节点的唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_tts_node_id",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "与旧系统（TTS）中机构类型节点的关联ID（兼容字段）"
+        },
+        {
+            "cid": 2,
+            "name": "c_office_type_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构类型的英文描述文本"
+        },
+        {
+            "cid": 3,
+            "name": "c_office_type_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构类型的中文描述文本"
+        },
+        {
+            "cid": 4,
+            "name": "c_parent_id",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "父级机构类型节点的ID，用于构建层级结构"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "OFFICE_TYPE_TREE_backup",
+            "from": "c_parent_id",
+            "to": "c_office_type_node_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "自关联外键，指向本表的节点ID以形成树状层级结构"
+        }
+    ]
+}

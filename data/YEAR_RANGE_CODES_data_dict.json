@@ -1,0 +1,34 @@
+{
+    "table": "YEAR_RANGE_CODES",
+    "table_desc": "存储年份范围代码及其对应的中英文描述，用于标识时间范围的精度和近似值。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_range_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年份范围唯一标识代码，用于关联其他表中时间范围字段"
+        },
+        {
+            "cid": 1,
+            "name": "c_range",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年份范围的英文描述（如：Exact year, Circa等）"
+        },
+        {
+            "cid": 2,
+            "name": "c_range_chn",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年份范围的中文描述（如：确年、大约等）"
+        }
+    ],
+    "foreign_keys": []
+}

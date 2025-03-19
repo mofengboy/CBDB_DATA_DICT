@@ -1,0 +1,235 @@
+
+{
+    "table": "ADDRESSES",
+    "table_desc": "存储地址的基本信息，包括名称、行政区类型、时间范围、地理坐标及其所属的上级行政区划层级",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址的唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_addr_cbd",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址的CBD代码或分类标识（具体含义需参考业务逻辑）"
+        },
+        {
+            "cid": 2,
+            "name": "c_name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址的英文名称"
+        },
+        {
+            "cid": 3,
+            "name": "c_name_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址的中文名称"
+        },
+        {
+            "cid": 4,
+            "name": "c_admin_type",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "行政区类型（如省、州、县等，可能关联其他代码表）"
+        },
+        {
+            "cid": 5,
+            "name": "c_firstyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址存在的起始年份"
+        },
+        {
+            "cid": 6,
+            "name": "c_lastyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址存在的结束年份"
+        },
+        {
+            "cid": 7,
+            "name": "x_coord",
+            "type": "FLOAT",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地理坐标的经度"
+        },
+        {
+            "cid": 8,
+            "name": "y_coord",
+            "type": "FLOAT",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地理坐标的纬度"
+        },
+        {
+            "cid": 9,
+            "name": "belongs1_ID",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属一级行政区划的ID（如省）"
+        },
+        {
+            "cid": 10,
+            "name": "belongs1_Name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属一级行政区划的名称"
+        },
+        {
+            "cid": 11,
+            "name": "belongs2_ID",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属二级行政区划的ID（如市）"
+        },
+        {
+            "cid": 12,
+            "name": "belongs2_Name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属二级行政区划的名称"
+        },
+        {
+            "cid": 13,
+            "name": "belongs3_ID",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属三级行政区划的ID（如县）"
+        },
+        {
+            "cid": 14,
+            "name": "belongs3_Name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属三级行政区划的名称"
+        },
+        {
+            "cid": 15,
+            "name": "belongs4_ID",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属四级行政区划的ID（如乡）"
+        },
+        {
+            "cid": 16,
+            "name": "belongs4_Name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属四级行政区划的名称"
+        },
+        {
+            "cid": 17,
+            "name": "belongs5_ID",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属五级行政区划的ID（如村）"
+        },
+        {
+            "cid": 18,
+            "name": "belongs5_Name",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "所属五级行政区划的名称"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ADDR_CODES",
+            "from": "belongs1_ID",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ADDR_CODES表，表示所属的一级行政区划"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "ADDR_CODES",
+            "from": "belongs2_ID",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ADDR_CODES表，表示所属的二级行政区划"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "ADDR_CODES",
+            "from": "belongs3_ID",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ADDR_CODES表，表示所属的三级行政区划"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "ADDR_CODES",
+            "from": "belongs4_ID",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ADDR_CODES表，表示所属的四级行政区划"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "ADDR_CODES",
+            "from": "belongs5_ID",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ADDR_CODES表，表示所属的五级行政区划"
+        }
+    ]
+}

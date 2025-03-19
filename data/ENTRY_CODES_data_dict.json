@@ -1,0 +1,35 @@
+
+{
+    "table": "ENTRY_CODES",
+    "table_desc": "条目类型代码表，存储不同条目类型的代码及其描述。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_entry_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "条目类型唯一标识代码，用于标识特定类型的条目（如科举考试类型、官职任命类型等）。"
+        },
+        {
+            "cid": 1,
+            "name": "c_entry_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "条目类型的英文描述，简要说明该代码对应的条目类别或性质。"
+        },
+        {
+            "cid": 2,
+            "name": "c_entry_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "条目类型的中文描述，提供代码对应条目的中文名称或详细说明。"
+        }
+    ],
+    "foreign_keys": []
+}

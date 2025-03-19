@@ -1,0 +1,53 @@
+
+{
+    "table": "FormLabels",
+    "table_desc": "存储多语言表单标签信息，用于界面元素的国际化显示",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_form",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "表单标识符/表单名称，用于关联具体界面元素"
+        },
+        {
+            "cid": 1,
+            "name": "c_label_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "标签唯一标识符，用于界面元素的多语言绑定"
+        },
+        {
+            "cid": 2,
+            "name": "c_english",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "英文标签文本内容"
+        },
+        {
+            "cid": 3,
+            "name": "c_jianti",
+            "type": "CHAR(90)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "简体中文标签文本内容"
+        },
+        {
+            "cid": 4,
+            "name": "c_fanti",
+            "type": "CHAR(90)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "繁体中文标签文本内容"
+        }
+    ],
+    "foreign_keys": []
+}

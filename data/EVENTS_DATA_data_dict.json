@@ -1,0 +1,284 @@
+
+{
+    "table": "EVENTS_DATA",
+    "table_desc": "存储与人物相关的事件记录数据，包括事件类型、时间、地点、角色及来源信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 BIOG_MAIN 表的人物唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_sequence",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "同一事件记录中的排序序号"
+        },
+        {
+            "cid": 2,
+            "name": "c_event_record_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件记录的唯一标识符"
+        },
+        {
+            "cid": 3,
+            "name": "c_event_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 EVENT_CODES 表的事件类型代码"
+        },
+        {
+            "cid": 4,
+            "name": "c_role",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物在事件中的角色或职务描述"
+        },
+        {
+            "cid": 5,
+            "name": "c_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件发生的公历年份"
+        },
+        {
+            "cid": 6,
+            "name": "c_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 NIAN_HAO 表的年号代码"
+        },
+        {
+            "cid": 7,
+            "name": "c_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号纪年中的年份"
+        },
+        {
+            "cid": 8,
+            "name": "c_yr_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 YEAR_RANGE_CODES 表的年份范围代码"
+        },
+        {
+            "cid": 9,
+            "name": "c_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "标记是否为闰月（0-否，1-是）"
+        },
+        {
+            "cid": 10,
+            "name": "c_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件发生的月份（农历）"
+        },
+        {
+            "cid": 11,
+            "name": "c_day",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件发生的日期（农历）"
+        },
+        {
+            "cid": 12,
+            "name": "c_day_ganzhi",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 GANZHI_CODES 表的干支日代码"
+        },
+        {
+            "cid": 13,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 ADDR_CODES 表的事件发生地地址代码"
+        },
+        {
+            "cid": 14,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到 TEXT_CODES 表的来源文本代码"
+        },
+        {
+            "cid": 15,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "来源文本中的具体页码或位置"
+        },
+        {
+            "cid": 16,
+            "name": "c_event",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件内容的自由文本描述"
+        },
+        {
+            "cid": 17,
+            "name": "c_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件相关备注或补充说明"
+        },
+        {
+            "cid": 18,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 19,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 20,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改者"
+        },
+        {
+            "cid": 21,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到人物主表"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "EVENT_CODES",
+            "from": "c_event_code",
+            "to": "c_event_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到事件类型代码表"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "ADDR_CODES",
+            "from": "c_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到地址代码表"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "NIAN_HAO",
+            "from": "c_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到年号代码表"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_yr_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到年份范围代码表"
+        },
+        {
+            "id": 5,
+            "seq": 5,
+            "table": "GANZHI_CODES",
+            "from": "c_day_ganzhi",
+            "to": "c_ganzhi_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到干支代码表"
+        },
+        {
+            "id": 6,
+            "seq": 6,
+            "table": "TEXT_CODES",
+            "from": "c_source",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到文本来源代码表"
+        }
+    ]
+}

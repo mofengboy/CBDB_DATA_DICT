@@ -1,0 +1,47 @@
+
+{
+    "table": "PARENTAL_STATUS_CODES",
+    "table_desc": "存储父母状态代码及其描述，用于标识人物父母在世状态及相关情况",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_parental_status_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "父母状态唯一标识代码，用于关联其他表中涉及父母状态的数据"
+        },
+        {
+            "cid": 1,
+            "name": "c_parental_status_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "父母状态英文描述（如：'Both parents alive'）"
+        },
+        {
+            "cid": 2,
+            "name": "c_parental_status_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "父母状态中文描述（如：'父母俱存'）"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ENTRY_DATA",
+            "from": "c_parental_status_code",
+            "to": "c_parental_status",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联至ENTRY_DATA表，标识人物在考试或官职任命时的父母状态"
+        }
+    ]
+}

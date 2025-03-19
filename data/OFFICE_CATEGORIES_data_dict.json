@@ -1,0 +1,44 @@
+
+{
+    "table": "OFFICE_CATEGORIES",
+    "table_desc": "存储官职分类信息，包括中英文分类描述和备注信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_office_category_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职分类唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_category_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职分类英文描述"
+        },
+        {
+            "cid": 2,
+            "name": "c_category_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "官职分类中文描述"
+        },
+        {
+            "cid": 3,
+            "name": "c_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "分类备注信息"
+        }
+    ],
+    "foreign_keys": []
+}

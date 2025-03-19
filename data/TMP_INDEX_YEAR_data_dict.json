@@ -1,0 +1,47 @@
+
+{
+    "table": "TMP_INDEX_YEAR",
+    "table_desc": "临时索引年份表，用于存储人物索引年份的临时计算或中间数据。通常用于处理需要暂存或中间计算的人物活跃年份信息。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "人物唯一标识符，关联到BIOG_MAIN表的c_personid字段"
+        },
+        {
+            "cid": 1,
+            "name": "c_index_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "人物的索引年份（通常为活跃年份或主要活动年份）"
+        },
+        {
+            "cid": 2,
+            "name": "c_index_year_source_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "索引年份来源的唯一标识符（可能关联到来源数据表）"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到主人物表的唯一标识符"
+        }
+    ]
+}

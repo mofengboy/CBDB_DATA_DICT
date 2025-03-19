@@ -1,0 +1,56 @@
+
+{
+    "table": "STATUS_TYPES",
+    "table_desc": "存储状态类型层级结构的元数据表，用于定义不同社会身份状态类型的分类及其层级关系",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_status_type_code",
+            "type": "CHAR(12)",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "状态类型唯一标识代码，12位定长字符类型"
+        },
+        {
+            "cid": 1,
+            "name": "c_status_type_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "状态类型的英文描述，可变长度说明文本"
+        },
+        {
+            "cid": 2,
+            "name": "c_status_type_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "状态类型的中文描述，包含汉字说明"
+        },
+        {
+            "cid": 3,
+            "name": "c_status_type_parent_code",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "父级状态类型代码，用于构建多级分类结构"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "STATUS_TYPES",
+            "from": "c_status_type_parent_code",
+            "to": "c_status_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "自关联外键，指向本表的c_status_type_code字段，用于建立层级分类关系"
+        }
+    ]
+}

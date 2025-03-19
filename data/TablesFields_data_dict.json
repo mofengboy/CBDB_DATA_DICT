@@ -1,0 +1,121 @@
+
+{
+    "table": "TablesFields",
+    "table_desc": "存储数据库表和字段的元数据信息，包括表名、字段名、索引、数据格式和外键关系等",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "RowNum",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "行号，用于唯一标识每条记录"
+        },
+        {
+            "cid": 1,
+            "name": "DumpTblNm",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "转储表名，导出或转储时的表名称"
+        },
+        {
+            "cid": 2,
+            "name": "DumpFldNm",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "转储字段名，导出或转储时的字段名称"
+        },
+        {
+            "cid": 3,
+            "name": "AccessTblNm",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "实际访问的表名，数据库中对应的表名称"
+        },
+        {
+            "cid": 4,
+            "name": "AccessFldNm",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "实际访问的字段名，数据库中对应的字段名称"
+        },
+        {
+            "cid": 5,
+            "name": "IndexOnField",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "索引字段，标识是否在该字段上建立索引"
+        },
+        {
+            "cid": 6,
+            "name": "DataFormat",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "数据格式，指定字段的数据类型或格式约束"
+        },
+        {
+            "cid": 7,
+            "name": "NULL_allowed",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "是否允许空值，标识该字段是否可以为空"
+        },
+        {
+            "cid": 8,
+            "name": "ForeignKey",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "外键，该字段关联的其他表的外键名称"
+        },
+        {
+            "cid": 9,
+            "name": "ForeignKeyBaseField",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "外键基础字段，外键在目标表中的对应字段名称"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ForeignKeys",
+            "from": "ForeignKey",
+            "to": "ForeignKey",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ForeignKeys表的外键约束字段"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "ForeignKeys",
+            "from": "ForeignKeyBaseField",
+            "to": "ForeignKeyBaseField",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ForeignKeys表的外键基础字段"
+        }
+    ]
+}

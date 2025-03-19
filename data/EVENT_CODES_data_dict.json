@@ -1,0 +1,266 @@
+
+{
+    "table": "EVENT_CODES",
+    "table_desc": "存储事件类型代码及其相关信息，包括事件名称、时间范围、关联地址、朝代和来源信息。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_event_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件类型的唯一标识代码"
+        },
+        {
+            "cid": 1,
+            "name": "c_event_name_chn",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件类型的中文名称"
+        },
+        {
+            "cid": 2,
+            "name": "c_event_name",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件类型的英文名称"
+        },
+        {
+            "cid": 3,
+            "name": "c_fy_yr",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件开始的公历年份"
+        },
+        {
+            "cid": 4,
+            "name": "c_ly_yr",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件结束的公历年份"
+        },
+        {
+            "cid": 5,
+            "name": "c_fy_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件开始的年号代码（关联NIAN_HAO表的c_nianhao_id）"
+        },
+        {
+            "cid": 6,
+            "name": "c_ly_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件结束的年号代码（关联NIAN_HAO表的c_nianhao_id）"
+        },
+        {
+            "cid": 7,
+            "name": "c_fy_nh_yr",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件开始的年号年份"
+        },
+        {
+            "cid": 8,
+            "name": "c_ly_nh_yr",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件结束的年号年份"
+        },
+        {
+            "cid": 9,
+            "name": "c_fy_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件开始年份是否包含闰月（布尔值）"
+        },
+        {
+            "cid": 10,
+            "name": "c_fy_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件开始的月份（1-12）"
+        },
+        {
+            "cid": 11,
+            "name": "c_ly_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件结束年份是否包含闰月（布尔值）"
+        },
+        {
+            "cid": 12,
+            "name": "c_ly_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件结束的月份（1-12）"
+        },
+        {
+            "cid": 13,
+            "name": "c_fy_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件开始年份的不确定性范围代码（关联YEAR_RANGE_CODES表的c_range_code）"
+        },
+        {
+            "cid": 14,
+            "name": "c_ly_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件结束年份的不确定性范围代码（关联YEAR_RANGE_CODES表的c_range_code）"
+        },
+        {
+            "cid": 15,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "关联地址的ID（关联ADDRESSES表的c_addr_id）"
+        },
+        {
+            "cid": 16,
+            "name": "c_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "关联朝代的代码（关联DYNASTIES表的c_dy）"
+        },
+        {
+            "cid": 17,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "来源文本的ID（关联TEXT_CODES表的c_textid）"
+        },
+        {
+            "cid": 18,
+            "name": "c_pages",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "来源文本中相关页码或章节"
+        },
+        {
+            "cid": 19,
+            "name": "c_event_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "事件相关的附加注释或说明"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "NIAN_HAO",
+            "from": "c_fy_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号代码表以定义事件开始年号"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "NIAN_HAO",
+            "from": "c_ly_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号代码表以定义事件结束年号"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "ADDRESSES",
+            "from": "c_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地址表以定义事件地理位置"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "DYNASTIES",
+            "from": "c_dy",
+            "to": "c_dy",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联朝代表以定义事件所属朝代"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "TEXT_CODES",
+            "from": "c_source",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联文本代码表以定义事件来源文献"
+        },
+        {
+            "id": 5,
+            "seq": 5,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_fy_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围代码表以定义开始年份的不确定性"
+        },
+        {
+            "id": 6,
+            "seq": 6,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_ly_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围代码表以定义结束年份的不确定性"
+        }
+    ]
+}

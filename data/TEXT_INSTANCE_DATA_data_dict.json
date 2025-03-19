@@ -1,0 +1,354 @@
+
+{
+    "table": "TEXT_INSTANCE_DATA",
+    "table_desc": "存储文本实例数据，记录文献不同版本或实例的出版信息、存世状态及相关元数据",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_textid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "关联主文本的唯一标识符，外键参考TEXT_CODES.c_textid"
+        },
+        {
+            "cid": 1,
+            "name": "c_text_edition_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "文本版本的唯一标识符"
+        },
+        {
+            "cid": 2,
+            "name": "c_text_instance_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "文本实例的唯一标识符"
+        },
+        {
+            "cid": 3,
+            "name": "c_instance_title_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "文本实例的中文标题"
+        },
+        {
+            "cid": 4,
+            "name": "c_instance_title",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "文本实例的拼音/英文标题"
+        },
+        {
+            "cid": 5,
+            "name": "c_instance_title_trans",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "文本实例的翻译标题"
+        },
+        {
+            "cid": 6,
+            "name": "c_part_of_instance",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "所属父实例的标识符"
+        },
+        {
+            "cid": 7,
+            "name": "c_part_of_instance_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "所属父实例关系的注释"
+        },
+        {
+            "cid": 8,
+            "name": "c_pub_country",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "出版国家代码，外键参考COUNTRY_CODES.c_country_code"
+        },
+        {
+            "cid": 9,
+            "name": "c_pub_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "出版朝代代码，外键参考DYNASTIES.c_dy"
+        },
+        {
+            "cid": 10,
+            "name": "c_pub_year",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "出版年份（文字描述）"
+        },
+        {
+            "cid": 11,
+            "name": "c_pub_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "出版年号代码，外键参考NIAN_HAO.c_nianhao_id"
+        },
+        {
+            "cid": 12,
+            "name": "c_pub_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "年号对应的具体年份"
+        },
+        {
+            "cid": 13,
+            "name": "c_pub_range_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "出版时间范围代码，外键参考YEAR_RANGE_CODES.c_range_code"
+        },
+        {
+            "cid": 14,
+            "name": "c_pub_loc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "出版地点描述"
+        },
+        {
+            "cid": 15,
+            "name": "c_publisher",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "出版商/机构名称"
+        },
+        {
+            "cid": 16,
+            "name": "c_print",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "印刷版本信息"
+        },
+        {
+            "cid": 17,
+            "name": "c_pub_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "出版相关补充说明"
+        },
+        {
+            "cid": 18,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "资料来源代码，外键参考TEXT_CODES.c_textid"
+        },
+        {
+            "cid": 19,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "资料引用页码"
+        },
+        {
+            "cid": 20,
+            "name": "c_extant",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "存世状态代码，外键参考EXTANT_CODES.c_extant_code"
+        },
+        {
+            "cid": 21,
+            "name": "c_url_api",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "相关API访问链接"
+        },
+        {
+            "cid": 22,
+            "name": "c_url_homepage",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "相关主页链接"
+        },
+        {
+            "cid": 23,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "自由文本注释"
+        },
+        {
+            "cid": 24,
+            "name": "c_number",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "编号/流水号"
+        },
+        {
+            "cid": 25,
+            "name": "c_counter",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "计数器/统计标识"
+        },
+        {
+            "cid": 26,
+            "name": "c_title_alt_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "替代中文标题"
+        },
+        {
+            "cid": 27,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 28,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 29,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "记录最后修改者"
+        },
+        {
+            "cid": 30,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "TEXT_CODES",
+            "from": "c_textid",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联主文本元数据"
+        },
+        {
+            "id": 1,
+            "seq": 0,
+            "table": "COUNTRY_CODES",
+            "from": "c_pub_country",
+            "to": "c_country_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联出版国家代码"
+        },
+        {
+            "id": 2,
+            "seq": 0,
+            "table": "DYNASTIES",
+            "from": "c_pub_dy",
+            "to": "c_dy",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联出版朝代信息"
+        },
+        {
+            "id": 3,
+            "seq": 0,
+            "table": "NIAN_HAO",
+            "from": "c_pub_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号代码"
+        },
+        {
+            "id": 4,
+            "seq": 0,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_pub_range_code",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联时间范围代码"
+        },
+        {
+            "id": 5,
+            "seq": 0,
+            "table": "EXTANT_CODES",
+            "from": "c_extant",
+            "to": "c_extant_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联存世状态代码"
+        }
+    ]
+}

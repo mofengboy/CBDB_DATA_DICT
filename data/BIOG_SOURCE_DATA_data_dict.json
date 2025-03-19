@@ -1,0 +1,85 @@
+
+{
+    "table": "BIOG_SOURCE_DATA",
+    "table_desc": "记录人物传记资料的主要来源信息，包括引用文本、页码和来源类型标记",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物唯一标识符，关联BIOG_MAIN表的c_personid"
+        },
+        {
+            "cid": 1,
+            "name": "c_textid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献唯一标识符，关联TEXT_CODES表的c_textid"
+        },
+        {
+            "cid": 2,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献中具体引用页码或章节信息"
+        },
+        {
+            "cid": 3,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关于资料来源的补充说明或注释"
+        },
+        {
+            "cid": 4,
+            "name": "c_main_source",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "标记是否为主要传记来源（1=是，0=否）"
+        },
+        {
+            "cid": 5,
+            "name": "c_self_bio",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "标记是否为自传类文本（1=是，0=否）"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到人物主表的基本信息"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "TEXT_CODES",
+            "from": "c_textid",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到文献元数据表"
+        }
+    ]
+}

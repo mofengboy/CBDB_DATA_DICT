@@ -1,0 +1,74 @@
+
+{
+    "table": "PLACE_CODES",
+    "table_desc": "存储地点编码及其地理坐标信息，用于标识和定位历史地理实体",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_place_id",
+            "type": "FLOAT",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地点唯一标识符，用于关联其他表中的地理位置数据"
+        },
+        {
+            "cid": 1,
+            "name": "c_place_1990",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "与1990年行政区划代码对应的地点标识（可能与现代地理编码系统关联）"
+        },
+        {
+            "cid": 2,
+            "name": "c_name",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地点的非中文名称（如拼音或英文名称）"
+        },
+        {
+            "cid": 3,
+            "name": "c_name_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地点的中文名称"
+        },
+        {
+            "cid": 4,
+            "name": "x_coord",
+            "type": "FLOAT",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地点的经度坐标（地理空间定位）"
+        },
+        {
+            "cid": 5,
+            "name": "y_coord",
+            "type": "FLOAT",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "地点的纬度坐标（地理空间定位）"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ADDR_PLACE_DATA",
+            "from": "c_place_id",
+            "to": "c_place_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "通过c_place_id关联到ADDR_PLACE_DATA表，表示地址与地点的归属关系"
+        }
+    ]
+}

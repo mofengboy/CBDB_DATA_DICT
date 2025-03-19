@@ -1,0 +1,26 @@
+
+{
+    "table": "CopyTablesDefault",
+    "table_desc": "存储默认需要复制的数据表列表",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "ID",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "记录的唯一标识符，用于区分不同默认复制表配置项"
+        },
+        {
+            "cid": 1,
+            "name": "TableName",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "需要被默认复制的目标数据表名称"
+        }
+    ],
+    "foreign_keys": []
+}

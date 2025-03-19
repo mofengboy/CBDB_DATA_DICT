@@ -1,0 +1,83 @@
+
+{
+    "table": "NIAN_HAO",
+    "table_desc": "存储中国历史年号信息表，记录年号的官方中文名称、拼音转写、使用朝代和使用时间范围",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_nianhao_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号唯一标识符，主键ID"
+        },
+        {
+            "cid": 1,
+            "name": "c_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联朝代表的朝代编号，对应DYNASTIES表的c_dy字段"
+        },
+        {
+            "cid": 2,
+            "name": "c_dynasty_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "朝代中文名称（如：唐、宋、元等）"
+        },
+        {
+            "cid": 3,
+            "name": "c_nianhao_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号正式中文名称（如：贞观、开元、洪武）"
+        },
+        {
+            "cid": 4,
+            "name": "c_nianhao_pin",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号拼音转写（如：zhengguan、kaiyuan、hongwu）"
+        },
+        {
+            "cid": 5,
+            "name": "c_firstyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号开始使用的公历年份"
+        },
+        {
+            "cid": 6,
+            "name": "c_lastyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号结束使用的公历年份"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "DYNASTIES",
+            "from": "c_dy",
+            "to": "c_dy",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联朝代表，确保年号对应的朝代信息一致性"
+        }
+    ]
+}

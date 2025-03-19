@@ -1,0 +1,233 @@
+
+{
+    "table": "BIOG_INST_DATA",
+    "table_desc": "记录人物与社会机构关系的任职经历数据表",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物唯一标识符，关联 BIOG_MAIN 表"
+        },
+        {
+            "cid": 1,
+            "name": "c_inst_name_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构名称代码，关联 SOCIAL_INSTITUTION_NAME_CODES 表"
+        },
+        {
+            "cid": 2,
+            "name": "c_inst_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "机构类型代码，关联 SOCIAL_INSTITUTION_CODES 表"
+        },
+        {
+            "cid": 3,
+            "name": "c_bi_role_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物在机构中的角色代码，关联 BIOG_INST_CODES 表"
+        },
+        {
+            "cid": 4,
+            "name": "c_bi_begin_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职开始年份（绝对年份）"
+        },
+        {
+            "cid": 5,
+            "name": "c_bi_by_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职开始年号代码，关联 NIAN_HAO 表"
+        },
+        {
+            "cid": 6,
+            "name": "c_bi_by_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职开始年号的年份"
+        },
+        {
+            "cid": 7,
+            "name": "c_bi_by_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职开始年份范围代码，关联 YEAR_RANGE_CODES 表"
+        },
+        {
+            "cid": 8,
+            "name": "c_bi_end_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职结束年份（绝对年份）"
+        },
+        {
+            "cid": 9,
+            "name": "c_bi_ey_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职结束年号代码，关联 NIAN_HAO 表"
+        },
+        {
+            "cid": 10,
+            "name": "c_bi_ey_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职结束年号的年份"
+        },
+        {
+            "cid": 11,
+            "name": "c_bi_ey_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职结束年份范围代码，关联 YEAR_RANGE_CODES 表"
+        },
+        {
+            "cid": 12,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源标识符，关联 TEXT_CODES 表"
+        },
+        {
+            "cid": 13,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源页码或卷号"
+        },
+        {
+            "cid": 14,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "备注或补充说明"
+        },
+        {
+            "cid": 15,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 16,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 17,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改者"
+        },
+        {
+            "cid": 18,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        },
+        {
+            "cid": 19,
+            "name": "tts_sysno",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "TTS系统编号（保留字段）"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到人物主表"
+        },
+        {
+            "id": 1,
+            "seq": 0,
+            "table": "BIOG_INST_CODES",
+            "from": "c_bi_role_code",
+            "to": "c_bi_role_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到机构角色代码表"
+        },
+        {
+            "id": 2,
+            "seq": 0,
+            "table": "SOCIAL_INSTITUTION_NAME_CODES",
+            "from": "c_inst_name_code",
+            "to": "c_inst_name_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到机构名称代码表"
+        },
+        {
+            "id": 3,
+            "seq": 0,
+            "table": "SOCIAL_INSTITUTION_CODES",
+            "from": "c_inst_code",
+            "to": "c_inst_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到机构类型代码表"
+        }
+    ]
+}

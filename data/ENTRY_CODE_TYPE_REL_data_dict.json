@@ -1,0 +1,49 @@
+
+{
+    "table": "ENTRY_CODE_TYPE_REL",
+    "table_desc": "条目代码与类型关联表，用于定义每个条目代码对应的条目类型",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_entry_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "条目代码，关联到ENTRY_CODES表的c_entry_code字段"
+        },
+        {
+            "cid": 1,
+            "name": "c_entry_type",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "条目类型，关联到ENTRY_TYPES表的c_entry_type字段"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ENTRY_CODES",
+            "from": "c_entry_code",
+            "to": "c_entry_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ENTRY_CODES表的条目代码主键"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "ENTRY_TYPES",
+            "from": "c_entry_type",
+            "to": "c_entry_type",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ENTRY_TYPES表的条目类型主键"
+        }
+    ]
+}

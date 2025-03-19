@@ -1,0 +1,74 @@
+
+{
+    "table": "TEXT_BIBLCAT_TYPES",
+    "table_desc": "存储文本书目分类类型的层级结构信息，用于管理不同分类类型的父子关系和展示顺序。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_text_cat_type_id",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "分类类型的唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_text_cat_type_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "分类类型的英文描述"
+        },
+        {
+            "cid": 2,
+            "name": "c_text_cat_type_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "分类类型的中文描述"
+        },
+        {
+            "cid": 3,
+            "name": "c_text_cat_type_parent_id",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "父级分类类型的ID，用于构建层级结构"
+        },
+        {
+            "cid": 4,
+            "name": "c_text_cat_type_level",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "分类类型在层级结构中的等级（如：1级为顶层分类）"
+        },
+        {
+            "cid": 5,
+            "name": "c_text_cat_type_sortorder",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "同一层级内分类类型的展示顺序"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "TEXT_BIBLCAT_TYPES",
+            "from": "c_text_cat_type_parent_id",
+            "to": "c_text_cat_type_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "自引用外键，关联当前表中的父级分类类型ID"
+        }
+    ]
+}

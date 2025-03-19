@@ -1,0 +1,257 @@
+
+{
+    "table": "STATUS_DATA",
+    "table_desc": "存储人物的状态信息，包括状态代码、起始年份、结束年份及相关补充信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联到BIOG_MAIN表的人物唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_sequence",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "同一人物多个状态记录的排序序号"
+        },
+        {
+            "cid": 2,
+            "name": "c_status_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "状态代码，引用STATUS_CODES表的c_status_code"
+        },
+        {
+            "cid": 3,
+            "name": "c_firstyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "状态起始年份（公历年份）"
+        },
+        {
+            "cid": 4,
+            "name": "c_fy_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份对应的年号代码，引用NIAN_HAO表的c_nianhao_id"
+        },
+        {
+            "cid": 5,
+            "name": "c_fy_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份在年号中的具体年份"
+        },
+        {
+            "cid": 6,
+            "name": "c_fy_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份范围代码，引用YEAR_RANGE_CODES表的c_range_code"
+        },
+        {
+            "cid": 7,
+            "name": "c_lastyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "状态结束年份（公历年份）"
+        },
+        {
+            "cid": 8,
+            "name": "c_ly_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份对应的年号代码，引用NIAN_HAO表的c_nianhao_id"
+        },
+        {
+            "cid": 9,
+            "name": "c_ly_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份在年号中的具体年份"
+        },
+        {
+            "cid": 10,
+            "name": "c_ly_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份范围代码，引用YEAR_RANGE_CODES表的c_range_code"
+        },
+        {
+            "cid": 11,
+            "name": "c_supplement",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "状态补充说明（如特殊身份或头衔）"
+        },
+        {
+            "cid": 12,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源代码，引用TEXT_CODES表的c_textid"
+        },
+        {
+            "cid": 13,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源的页码或卷号"
+        },
+        {
+            "cid": 14,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "状态记录的附加注释"
+        },
+        {
+            "cid": 15,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者标识"
+        },
+        {
+            "cid": 16,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 17,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改者标识"
+        },
+        {
+            "cid": 18,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联人物主表的人物ID"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "STATUS_CODES",
+            "from": "c_status_code",
+            "to": "c_status_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联状态代码表的状态类型"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "NIAN_HAO",
+            "from": "c_fy_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号表的起始年号"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "NIAN_HAO",
+            "from": "c_ly_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号表的结束年号"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_fy_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围代码表的起始年份范围"
+        },
+        {
+            "id": 5,
+            "seq": 5,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_ly_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围代码表的结束年份范围"
+        },
+        {
+            "id": 6,
+            "seq": 6,
+            "table": "TEXT_CODES",
+            "from": "c_source",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联文本资料表的资料来源"
+        }
+    ]
+}

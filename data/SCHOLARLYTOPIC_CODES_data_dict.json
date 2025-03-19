@@ -1,0 +1,71 @@
+
+{
+    "table": "SCHOLARLYTOPIC_CODES",
+    "table_desc": "存储学术主题分类代码及其描述信息，用于标识不同学术研究领域的中英文名称和分类信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_topic_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "学术主题的唯一标识代码"
+        },
+        {
+            "cid": 1,
+            "name": "c_topic_desc",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "学术主题的英文描述"
+        },
+        {
+            "cid": 2,
+            "name": "c_topic_desc_chn",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "学术主题的中文描述"
+        },
+        {
+            "cid": 3,
+            "name": "c_topic_type_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "学术主题类型分类代码"
+        },
+        {
+            "cid": 4,
+            "name": "c_topic_type_desc",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "学术主题类型的英文描述"
+        },
+        {
+            "cid": 5,
+            "name": "c_topic_type_desc_chn",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "学术主题类型的中文描述"
+        },
+        {
+            "cid": 6,
+            "name": "c_sortorder",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "排序序号，用于控制主题的显示顺序"
+        }
+    ],
+    "foreign_keys": []
+}

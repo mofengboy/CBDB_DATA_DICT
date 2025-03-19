@@ -1,0 +1,408 @@
+
+{
+    "table": "TEXT_CODES",
+    "table_desc": "存储文献典籍的基本书目信息，包括标题、版本、出版信息、保存状态及相关参考链接等元数据",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_textid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_title_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献中文标题"
+        },
+        {
+            "cid": 2,
+            "name": "c_suffix_version",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献版本后缀信息"
+        },
+        {
+            "cid": 3,
+            "name": "c_title",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献标题（拼音/英文）"
+        },
+        {
+            "cid": 4,
+            "name": "c_title_trans",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献标题翻译"
+        },
+        {
+            "cid": 5,
+            "name": "c_text_type_id",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献类型标识，关联TEXT_TYPE表"
+        },
+        {
+            "cid": 6,
+            "name": "c_text_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献创作年份（公历年）"
+        },
+        {
+            "cid": 7,
+            "name": "c_text_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献创作年号编码，关联NIAN_HAO表"
+        },
+        {
+            "cid": 8,
+            "name": "c_text_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献创作年号年份"
+        },
+        {
+            "cid": 9,
+            "name": "c_text_range_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献创作时间范围编码，关联YEAR_RANGE_CODES表"
+        },
+        {
+            "cid": 10,
+            "name": "c_period",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献所属历史时期"
+        },
+        {
+            "cid": 11,
+            "name": "c_bibl_cat_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "书目分类编码，关联TEXT_BIBLCAT_CODES表"
+        },
+        {
+            "cid": 12,
+            "name": "c_extant",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "现存状态编码，关联EXTANT_CODES表"
+        },
+        {
+            "cid": 13,
+            "name": "c_text_country",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献创作国家编码，关联COUNTRY_CODES表"
+        },
+        {
+            "cid": 14,
+            "name": "c_text_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献创作朝代编码，关联DYNASTIES表"
+        },
+        {
+            "cid": 15,
+            "name": "c_pub_country",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出版国家编码，关联COUNTRY_CODES表"
+        },
+        {
+            "cid": 16,
+            "name": "c_pub_dy",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出版朝代编码，关联DYNASTIES表"
+        },
+        {
+            "cid": 17,
+            "name": "c_pub_year",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出版年份（公历年或年号年）"
+        },
+        {
+            "cid": 18,
+            "name": "c_pub_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出版年号编码，关联NIAN_HAO表"
+        },
+        {
+            "cid": 19,
+            "name": "c_pub_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出版年号年份"
+        },
+        {
+            "cid": 20,
+            "name": "c_pub_range_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出版时间范围编码，关联YEAR_RANGE_CODES表"
+        },
+        {
+            "cid": 21,
+            "name": "c_pub_loc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出版地点"
+        },
+        {
+            "cid": 22,
+            "name": "c_publisher",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出版商/出版机构"
+        },
+        {
+            "cid": 23,
+            "name": "c_pub_notes",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "出版相关注释"
+        },
+        {
+            "cid": 24,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源编码"
+        },
+        {
+            "cid": 25,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源页码"
+        },
+        {
+            "cid": 26,
+            "name": "c_url_api",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献API访问链接"
+        },
+        {
+            "cid": 27,
+            "name": "c_url_api_coda",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "CODA平台API链接"
+        },
+        {
+            "cid": 28,
+            "name": "c_url_homepage",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献主页URL"
+        },
+        {
+            "cid": 29,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "附加注释"
+        },
+        {
+            "cid": 30,
+            "name": "c_number",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献编号"
+        },
+        {
+            "cid": 31,
+            "name": "c_counter",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "计数器字段"
+        },
+        {
+            "cid": 32,
+            "name": "c_title_alt_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "文献中文别名"
+        },
+        {
+            "cid": 33,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "创建者"
+        },
+        {
+            "cid": 34,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "创建日期"
+        },
+        {
+            "cid": 35,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "最后修改者"
+        },
+        {
+            "cid": 36,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "最后修改日期"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "TEXT_TYPE",
+            "from": "c_text_type_id",
+            "to": "c_text_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联文献类型编码"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "NIAN_HAO",
+            "from": "c_text_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号编码"
+        },
+        {
+            "id": 2,
+            "seq": 2,
+            "table": "TEXT_BIBLCAT_CODES",
+            "from": "c_bibl_cat_code",
+            "to": "c_text_cat_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联书目分类编码"
+        },
+        {
+            "id": 3,
+            "seq": 3,
+            "table": "EXTANT_CODES",
+            "from": "c_extant",
+            "to": "c_extant_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联现存状态编码"
+        },
+        {
+            "id": 4,
+            "seq": 4,
+            "table": "COUNTRY_CODES",
+            "from": "c_text_country",
+            "to": "c_country_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联国家编码"
+        },
+        {
+            "id": 5,
+            "seq": 5,
+            "table": "DYNASTIES",
+            "from": "c_text_dy",
+            "to": "c_dy",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联朝代编码"
+        }
+    ]
+}

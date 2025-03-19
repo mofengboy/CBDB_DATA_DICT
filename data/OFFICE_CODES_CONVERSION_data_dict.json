@@ -1,0 +1,67 @@
+
+{
+    "table": "OFFICE_CODES_CONVERSION",
+    "table_desc": "存储新旧办公室代码及其中文名称的转换映射关系，用于数据迁移或系统升级时的代码对应。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_office_id_backup",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "旧的办公室代码ID备份字段，用于记录转换前的原始办公室标识符。"
+        },
+        {
+            "cid": 1,
+            "name": "c_office_chn_backup",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "旧的办公室中文名称备份字段，记录转换前的原始中文名称。"
+        },
+        {
+            "cid": 2,
+            "name": "c_office_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "新的办公室代码ID，关联到OFFICE_CODES表的c_office_id字段。"
+        },
+        {
+            "cid": 3,
+            "name": "c_office_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "新的办公室中文名称，关联到OFFICE_CODES表的c_office_chn字段。"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "OFFICE_CODES",
+            "from": "c_office_id",
+            "to": "c_office_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到OFFICE_CODES表的主键c_office_id，确保新代码的一致性。"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "OFFICE_CODES",
+            "from": "c_office_chn",
+            "to": "c_office_chn",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到OFFICE_CODES表的中文名称字段c_office_chn，维护名称映射关系。"
+        }
+    ]
+}

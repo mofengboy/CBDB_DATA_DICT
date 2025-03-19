@@ -1,0 +1,121 @@
+
+{
+    "table": "ForeignKeys",
+    "table_desc": "存储数据库中外键约束的元数据信息，记录各表之间的外键关系及其属性。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "AccessTblNm",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "外键所属的Access数据库表名"
+        },
+        {
+            "cid": 1,
+            "name": "AccessFldNm",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "外键所属的Access数据库字段名"
+        },
+        {
+            "cid": 2,
+            "name": "ForeignKey",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "外键约束名称"
+        },
+        {
+            "cid": 3,
+            "name": "ForeignKeyBaseField",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "外键关联的目标表主键字段"
+        },
+        {
+            "cid": 4,
+            "name": "FKString",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "外键关系的字符串表示（格式：表名.字段名）"
+        },
+        {
+            "cid": 5,
+            "name": "FKName",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "外键的友好名称或别名"
+        },
+        {
+            "cid": 6,
+            "name": "skip",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "标记是否跳过该外键处理（0=不跳过，1=跳过）"
+        },
+        {
+            "cid": 7,
+            "name": "IndexOnField",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "指示是否在外键字段上创建索引"
+        },
+        {
+            "cid": 8,
+            "name": "DataFormat",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "外键字段的数据格式约束"
+        },
+        {
+            "cid": 9,
+            "name": "NULL_allowed",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "标记是否允许外键字段为NULL（0=不允许，1=允许）"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "TablesFields",
+            "from": "AccessTblNm",
+            "to": "AccessTblNm",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到TablesFields表的AccessTblNm字段，维护表结构元数据一致性"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "TablesFields",
+            "from": "AccessFldNm",
+            "to": "AccessFldNm",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到TablesFields表的AccessFldNm字段，确保字段级元数据同步"
+        }
+    ]
+}

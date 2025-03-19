@@ -1,0 +1,35 @@
+
+{
+    "table": "TEXT_ROLE_CODES",
+    "table_desc": "存储文本角色类型代码及其描述的代码表，用于标识文本创作、编辑或相关活动中涉及的不同角色类型",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_role_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "角色类型唯一标识符，主键字段"
+        },
+        {
+            "cid": 1,
+            "name": "c_role_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "角色类型的英文描述（如作者、编者、注释者等）"
+        },
+        {
+            "cid": 2,
+            "name": "c_role_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "角色类型的中文描述（如：作者、编者、注释者等）"
+        }
+    ],
+    "foreign_keys": []
+}

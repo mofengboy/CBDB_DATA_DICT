@@ -1,0 +1,26 @@
+
+{
+    "table": "CopyMissingTables",
+    "table_desc": "用于记录在数据库复制过程中发现的缺失表的信息的表",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "ID",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录的唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "TableName",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "缺失的表的名称"
+        }
+    ],
+    "foreign_keys": []
+}

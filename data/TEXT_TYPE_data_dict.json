@@ -1,0 +1,74 @@
+
+{
+    "table": "TEXT_TYPE",
+    "table_desc": "存储文本类型分类信息，用于定义不同文本类型及其层次结构",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_text_type_code",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "文本类型唯一标识代码"
+        },
+        {
+            "cid": 1,
+            "name": "c_text_type_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "文本类型英文描述"
+        },
+        {
+            "cid": 2,
+            "name": "c_text_type_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "文本类型中文描述"
+        },
+        {
+            "cid": 3,
+            "name": "c_text_type_parent_id",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "父级文本类型代码，用于构建分类层级"
+        },
+        {
+            "cid": 4,
+            "name": "c_text_type_level",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "当前类型在分类树中的层级"
+        },
+        {
+            "cid": 5,
+            "name": "c_text_type_sortorder",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "同层级类型显示顺序编号"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "TEXT_TYPE",
+            "from": "c_text_type_parent_id",
+            "to": "c_text_type_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "父文本类型代码，引用本表的c_text_type_code字段，表示上级分类"
+        }
+    ]
+}

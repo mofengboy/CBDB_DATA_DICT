@@ -1,0 +1,35 @@
+
+{
+    "table": "GANZHI_CODES",
+    "table_desc": "存储干支代码及其对应的中文名称和拼音，用于表示中国传统历法中的干支纪年、纪日等信息。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_ganzhi_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "干支的唯一标识代码，表示特定的干支组合（如甲子、乙丑等）。"
+        },
+        {
+            "cid": 1,
+            "name": "c_ganzhi_chn",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "干支的中文名称（汉字表示），例如'甲子'、'乙丑'等。"
+        },
+        {
+            "cid": 2,
+            "name": "c_ganzhi_py",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "干支的拼音（拉丁字母转写），例如'jiazi'、'yichou'等。"
+        }
+    ],
+    "foreign_keys": []
+}

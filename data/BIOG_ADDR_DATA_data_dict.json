@@ -1,0 +1,369 @@
+
+{
+    "table": "BIOG_ADDR_DATA",
+    "table_desc": "存储人物生平地址关联数据，记录人物在不同时间段内的地址信息及其类型、来源和日期细节",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联BIOG_MAIN表的人物唯一标识符"
+        },
+        {
+            "cid": 1,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联ADDRESSES表的地址唯一标识符"
+        },
+        {
+            "cid": 2,
+            "name": "c_addr_type",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址类型代码，关联BIOG_ADDR_CODES表的c_addr_type字段"
+        },
+        {
+            "cid": 3,
+            "name": "c_sequence",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址信息在人物生平中的排序序列号"
+        },
+        {
+            "cid": 4,
+            "name": "c_firstyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址关联起始年份（公历年）"
+        },
+        {
+            "cid": 5,
+            "name": "c_lastyear",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址关联结束年份（公历年）"
+        },
+        {
+            "cid": 6,
+            "name": "c_source",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源代码，关联TEXT_CODES表的c_textid字段"
+        },
+        {
+            "cid": 7,
+            "name": "c_pages",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "资料来源页码或卷册信息"
+        },
+        {
+            "cid": 8,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址关联备注信息"
+        },
+        {
+            "cid": 9,
+            "name": "c_fy_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份对应的年号代码，关联NIAN_HAO表的c_nianhao_id"
+        },
+        {
+            "cid": 10,
+            "name": "c_ly_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份对应的年号代码，关联NIAN_HAO表的c_nianhao_id"
+        },
+        {
+            "cid": 11,
+            "name": "c_fy_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份对应的年号纪年"
+        },
+        {
+            "cid": 12,
+            "name": "c_ly_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份对应的年号纪年"
+        },
+        {
+            "cid": 13,
+            "name": "c_fy_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份范围代码，关联YEAR_RANGE_CODES表的c_range_code"
+        },
+        {
+            "cid": 14,
+            "name": "c_ly_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份范围代码，关联YEAR_RANGE_CODES表的c_range_code"
+        },
+        {
+            "cid": 15,
+            "name": "c_natal",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "标识是否为籍贯地址（1=是，0=否）"
+        },
+        {
+            "cid": 16,
+            "name": "c_fy_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始年份是否包含闰月（1=是，0=否）"
+        },
+        {
+            "cid": 17,
+            "name": "c_ly_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束年份是否包含闰月（1=是，0=否）"
+        },
+        {
+            "cid": 18,
+            "name": "c_fy_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始月份（农历）"
+        },
+        {
+            "cid": 19,
+            "name": "c_ly_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束月份（农历）"
+        },
+        {
+            "cid": 20,
+            "name": "c_fy_day",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始日期（农历）"
+        },
+        {
+            "cid": 21,
+            "name": "c_ly_day",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束日期（农历）"
+        },
+        {
+            "cid": 22,
+            "name": "c_fy_day_gz",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "起始日期的干支代码，关联GANZHI_CODES表的c_ganzhi_code"
+        },
+        {
+            "cid": 23,
+            "name": "c_ly_day_gz",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "结束日期的干支代码，关联GANZHI_CODES表的c_ganzhi_code"
+        },
+        {
+            "cid": 24,
+            "name": "c_created_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建者"
+        },
+        {
+            "cid": 25,
+            "name": "c_created_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录创建日期"
+        },
+        {
+            "cid": 26,
+            "name": "c_modified_by",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改者"
+        },
+        {
+            "cid": 27,
+            "name": "c_modified_date",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "记录最后修改日期"
+        },
+        {
+            "cid": 28,
+            "name": "c_delete",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "软删除标记（1=已删除，0=未删除）"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到BIOG_MAIN表中的个人唯一标识符"
+        },
+        {
+            "id": 1,
+            "seq": 0,
+            "table": "ADDRESSES",
+            "from": "c_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到ADDRESSES表中的地址唯一标识符"
+        },
+        {
+            "id": 2,
+            "seq": 0,
+            "table": "BIOG_ADDR_CODES",
+            "from": "c_addr_type",
+            "to": "c_addr_type",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地址类型代码表"
+        },
+        {
+            "id": 3,
+            "seq": 0,
+            "table": "NIAN_HAO",
+            "from": "c_fy_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号代码表（起始年份）"
+        },
+        {
+            "id": 4,
+            "seq": 0,
+            "table": "NIAN_HAO",
+            "from": "c_ly_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号代码表（结束年份）"
+        },
+        {
+            "id": 5,
+            "seq": 0,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_fy_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围代码表（起始年份）"
+        },
+        {
+            "id": 6,
+            "seq": 0,
+            "table": "YEAR_RANGE_CODES",
+            "from": "c_ly_range",
+            "to": "c_range_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年份范围代码表（结束年份）"
+        },
+        {
+            "id": 7,
+            "seq": 0,
+            "table": "GANZHI_CODES",
+            "from": "c_fy_day_gz",
+            "to": "c_ganzhi_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联干支代码表（起始日期）"
+        },
+        {
+            "id": 8,
+            "seq": 0,
+            "table": "GANZHI_CODES",
+            "from": "c_ly_day_gz",
+            "to": "c_ganzhi_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联干支代码表（结束日期）"
+        }
+    ]
+}

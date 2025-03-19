@@ -1,0 +1,35 @@
+
+{
+    "table": "CHORONYM_CODES",
+    "table_desc": "存储中国历史人物郡望代码的标准化编码表，用于记录不同姓氏家族的地理渊源信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_choronym_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "郡望唯一标识代码，数字类型主键"
+        },
+        {
+            "cid": 1,
+            "name": "c_choronym_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "郡望的英文文字描述，记录郡望的地理或历史特征"
+        },
+        {
+            "cid": 2,
+            "name": "c_choronym_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "郡望的中文汉字表达，包含标准汉字名称"
+        }
+    ],
+    "foreign_keys": []
+}

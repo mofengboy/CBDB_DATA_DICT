@@ -1,0 +1,83 @@
+
+{
+    "table": "TEXT_BIBLCAT_CODES",
+    "table_desc": "存储文本目录分类代码及其层级结构的元数据表，用于定义文献目录的分类体系（如四部分类法扩展体系）。包含分类代码、描述、中文名称、拼音、父级分类ID、分类层级和排序顺序等字段。",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_text_cat_code",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "分类代码唯一标识符，作为分类体系节点的唯一编码"
+        },
+        {
+            "cid": 1,
+            "name": "c_text_cat_desc",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "分类的英文描述，说明该分类的具体内容（如'Historiography'表示史部）"
+        },
+        {
+            "cid": 2,
+            "name": "c_text_cat_desc_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "分类的中文名称（如'史部'），用于显示和检索"
+        },
+        {
+            "cid": 3,
+            "name": "c_text_cat_pinyin",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "分类中文名称的拼音形式，用于音序排序和检索（如'shibu'）"
+        },
+        {
+            "cid": 4,
+            "name": "c_text_cat_parent_id",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "父级分类代码，指向同一表中c_text_cat_code字段，用于构建树形层级结构（如'史部'的父节点为根节点）"
+        },
+        {
+            "cid": 5,
+            "name": "c_text_cat_level",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "分类在树形结构中的层级（如1表示一级分类，2表示二级子分类）"
+        },
+        {
+            "cid": 6,
+            "name": "c_text_cat_sortorder",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "无",
+            "pk": 0,
+            "desc": "分类在同一层级中的显示顺序编号，用于控制目录展示次序"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "TEXT_BIBLCAT_CODES",
+            "from": "c_text_cat_parent_id",
+            "to": "c_text_cat_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "自关联外键：通过c_text_cat_parent_id字段实现分类树形结构的父子关系（如'正史类'的父节点为'史部'）"
+        }
+    ]
+}

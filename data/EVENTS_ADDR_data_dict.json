@@ -1,0 +1,163 @@
+
+{
+    "table": "EVENTS_ADDR",
+    "table_desc": "存储事件与地址关联信息，记录事件发生地点的时空信息",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_event_record_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件记录唯一标识符，关联EVENTS_DATA表的c_event_record_id"
+        },
+        {
+            "cid": 1,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "人物唯一标识符，关联BIOG_MAIN表的c_personid"
+        },
+        {
+            "cid": 2,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "地址唯一标识符，关联ADDR_CODES表的c_addr_id"
+        },
+        {
+            "cid": 3,
+            "name": "c_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件发生的年份（公历）"
+        },
+        {
+            "cid": 4,
+            "name": "c_nh_code",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号代码，关联NIAN_HAO表的c_nianhao_id"
+        },
+        {
+            "cid": 5,
+            "name": "c_nh_year",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年号纪年中的年份"
+        },
+        {
+            "cid": 6,
+            "name": "c_yr_range",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "年份范围代码，关联YEAR_RANGE_CODES表的c_range_code"
+        },
+        {
+            "cid": 7,
+            "name": "c_intercalary",
+            "type": "BOOLEAN(2)",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "闰月标识（0=非闰月，1=闰月）"
+        },
+        {
+            "cid": 8,
+            "name": "c_month",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件发生的月份（农历）"
+        },
+        {
+            "cid": 9,
+            "name": "c_day",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "事件发生的日期（农历）"
+        },
+        {
+            "cid": 10,
+            "name": "c_day_ganzhi",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "干支日代码，关联GANZHI_CODES表的c_ganzhi_code"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联人物主表"
+        },
+        {
+            "id": 1,
+            "seq": 0,
+            "table": "ADDR_CODES",
+            "from": "c_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联地址编码表"
+        },
+        {
+            "id": 2,
+            "seq": 0,
+            "table": "NIAN_HAO",
+            "from": "c_nh_code",
+            "to": "c_nianhao_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联年号表"
+        },
+        {
+            "id": 3,
+            "seq": 0,
+            "table": "GANZHI_CODES",
+            "from": "c_day_ganzhi",
+            "to": "c_ganzhi_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联干支编码表"
+        },
+        {
+            "id": 4,
+            "seq": 0,
+            "table": "EVENTS_DATA",
+            "from": "c_event_record_id",
+            "to": "c_event_record_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联事件数据主表"
+        }
+    ]
+}

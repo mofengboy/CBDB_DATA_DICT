@@ -1,0 +1,137 @@
+
+{
+    "table": "KINSHIP_CODES",
+    "table_desc": "存储亲属关系类型代码及其相关属性，用于描述不同亲属关系的分类、中文称谓、代际步数和关系简化形式",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_kincode",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系类型唯一标识代码"
+        },
+        {
+            "cid": 1,
+            "name": "c_kin_pair1",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系配对中第一个角色的关联代码"
+        },
+        {
+            "cid": 2,
+            "name": "c_kin_pair2",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系配对中第二个角色的关联代码"
+        },
+        {
+            "cid": 3,
+            "name": "c_kin_pair_notes",
+            "type": "CHAR(50)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系配对的说明注释"
+        },
+        {
+            "cid": 4,
+            "name": "c_kinrel_chn",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系的中文称谓"
+        },
+        {
+            "cid": 5,
+            "name": "c_kinrel",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系的英文/拼音描述"
+        },
+        {
+            "cid": 6,
+            "name": "c_kinrel_alt",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系的替代描述"
+        },
+        {
+            "cid": 7,
+            "name": "c_pick_sorting",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "亲属关系在界面中的显示排序权重"
+        },
+        {
+            "cid": 8,
+            "name": "c_upstep",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "向上追溯的世代步数（如父亲为1步）"
+        },
+        {
+            "cid": 9,
+            "name": "c_dwnstep",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "向下追溯的世代步数（如儿子为1步）"
+        },
+        {
+            "cid": 10,
+            "name": "c_marstep",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "通过婚姻关系建立的亲属步数"
+        },
+        {
+            "cid": 11,
+            "name": "c_colstep",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "旁系亲属的世代步数（如堂兄弟为1步）"
+        },
+        {
+            "cid": 12,
+            "name": "c_kinrel_simplified",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "简化版的亲属关系描述（用于快速检索）"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "KIN_DATA",
+            "from": "c_kincode",
+            "to": "c_kin_code",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到KIN_DATA表的亲属关系代码，建立亲属数据与代码定义的关联"
+        }
+    ]
+}

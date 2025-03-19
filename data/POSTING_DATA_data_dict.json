@@ -1,0 +1,58 @@
+
+{
+    "table": "POSTING_DATA",
+    "table_desc": "存储任职记录的基本关联信息，用于关联人物与其任职记录的主表",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_personid",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "关联人物的唯一标识符，对应 BIOG_MAIN 表中的 c_personid"
+        },
+        {
+            "cid": 1,
+            "name": "c_posting_id",
+            "type": "INTEGER",
+            "notnull": 1,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "任职记录的唯一标识符（必填字段），可关联到 POSTED_TO_OFFICE_DATA 或 POSTED_TO_ADDR_DATA 表的 c_posting_id"
+        },
+        {
+            "cid": 2,
+            "name": "c_posting_id_old",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": null,
+            "pk": 0,
+            "desc": "旧系统中的任职记录标识符（历史遗留字段），用于数据迁移或版本兼容"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "BIOG_MAIN",
+            "from": "c_personid",
+            "to": "c_personid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到人物主表，确保任职记录对应有效人物"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "POSTED_TO_OFFICE_DATA",
+            "from": "c_posting_id",
+            "to": "c_posting_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联到官职任职详细数据表，标识同一任职事件"
+        }
+    ]
+}

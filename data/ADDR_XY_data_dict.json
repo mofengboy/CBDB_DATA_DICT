@@ -1,0 +1,85 @@
+
+{
+    "table": "ADDR_XY",
+    "table_desc": "存储地址坐标信息及其来源参考数据，记录地理坐标与地址ID的关联关系",
+    "columns": [
+        {
+            "cid": 0,
+            "name": "c_addr_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "地址ID，关联地址主表的外键字段"
+        },
+        {
+            "cid": 1,
+            "name": "x_coord",
+            "type": "FLOAT",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "地理经度坐标"
+        },
+        {
+            "cid": 2,
+            "name": "y_coord",
+            "type": "FLOAT",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "地理纬度坐标"
+        },
+        {
+            "cid": 3,
+            "name": "c_source_reference",
+            "type": "CHAR(255)",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "坐标数据来源的文献或资料引用说明"
+        },
+        {
+            "cid": 4,
+            "name": "c_source_id",
+            "type": "INTEGER",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "来源文本的唯一标识符，关联文本数据表"
+        },
+        {
+            "cid": 5,
+            "name": "c_notes",
+            "type": "CHAR",
+            "notnull": 0,
+            "dflt_value": "None",
+            "pk": 0,
+            "desc": "与坐标相关的附加注释或补充信息"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "id": 0,
+            "seq": 0,
+            "table": "ADDRESSES",
+            "from": "c_addr_id",
+            "to": "c_addr_id",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联ADDRESSES表以获取地址基础信息"
+        },
+        {
+            "id": 1,
+            "seq": 1,
+            "table": "TEXT_CODES",
+            "from": "c_source_id",
+            "to": "c_textid",
+            "on_update": "CASCADE",
+            "on_delete": "CASCADE",
+            "match": "NONE",
+            "desc": "关联TEXT_CODES表以追溯坐标来源的文本详情"
+        }
+    ]
+}
